@@ -53,5 +53,4 @@ dependencies {
     implementation(libs.dagger.core)
     api(libs.dagger.gwt)
     annotationProcessor(libs.dagger.compiler)
-//    implementation "com.github.tommyettinger:textratypist:0.7.2"
 }
