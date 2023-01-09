@@ -5,7 +5,7 @@ import com.badlogic.gdx.tools.texturepacker.TexturePacker
     "DSL_SCOPE_VIOLATION"
 )
 plugins {
-    id("java-library")
+    `java-library`
     alias(libs.plugins.spotless)
 }
 
