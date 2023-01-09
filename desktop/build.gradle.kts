@@ -35,8 +35,12 @@ tasks.withType(ShadowJar::class.java) {
 
 dependencies {
     implementation(project(":core"))
-    implementation("com.badlogicgames.gdx:gdx-platform:${libs.versions.gdx.get()}:natives-desktop")
-    implementation("com.badlogicgames.gdx:gdx-box2d-platform:${libs.versions.gdx.get()}:natives-desktop")
+    nativesDesktop(libs.gdx.platform)
+    nativesDesktop(libs.gdx.box2d.platform)
     implementation(libs.gdx.backend.lwjgl3)
     implementation(libs.gdx.controllers.desktop)
 }
+
+fun DependencyHandlerScope.nativesDesktop(
+    provider: Provider<MinimalExternalModuleDependency>,
+) = implementation(variantOf(provider) { classifier("natives-desktop") })

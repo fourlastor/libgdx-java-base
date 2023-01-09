@@ -16,9 +16,11 @@ dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = 
 dagger-gwt = { module = "com.google.dagger:dagger-gwt", version.ref = "dagger"}
 java-inject = { module = "javax.inject:javax.inject", version.ref = "javax" }
 gdx-core = { module = "com.badlogicgames.gdx:gdx", version.ref = "gdx" }
+gdx-platform = { module = "com.badlogicgames.gdx:gdx-platform", version.ref = "gdx" }
 gdx-ai = { module = "com.badlogicgames.gdx:gdx-ai", version.ref = "gdxAi" }
 gdx-box2d-core = { module = "com.badlogicgames.gdx:gdx-box2d", version.ref = "gdx" }
 gdx-box2d-gwt = { module = "com.badlogicgames.gdx:gdx-box2d-gwt", version.ref = "gdx" }
+gdx-box2d-platform = { module = "com.badlogicgames.gdx:gdx-box2d-platform", version.ref = "gdx" }
 gdx-controllers-core = { module = "com.badlogicgames.gdx-controllers:gdx-controllers-core", version.ref = "controllers" }
 gdx-controllers-desktop = { module = "com.badlogicgames.gdx-controllers:gdx-controllers-desktop", version.ref = "controllers" }
 gdx-controllers-gwt = { module = "com.badlogicgames.gdx-controllers:gdx-controllers-gwt", version.ref = "controllers" }
