@@ -42,4 +42,4 @@ dependencies {
 
 fun DependencyHandlerScope.nativesDesktop(
     provider: Provider<MinimalExternalModuleDependency>,
-) = implementation(variantOf(provider) { classifier("natives-desktop") })
+) = runtimeOnly(variantOf(provider) { classifier("natives-desktop") })
