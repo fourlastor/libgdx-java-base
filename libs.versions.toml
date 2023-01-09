@@ -1,0 +1,27 @@
+[versions]
+ashley = "1.7.4"
+beryx-runtime = "1.12.7"
+controllers = "2.2.1"
+dagger = "2.44"
+gdx = "1.11.0"
+gdxAi = "1.8.2"
+shadow = "7.1.2"
+spotless = "6.10.0"
+textratypist = "0.7.2"
+[libraries]
+ashley = { module = "com.badlogicgames.ashley:ashley", version.ref = "ashley" }
+dagger-core = { module = "com.google.dagger:dagger", version.ref = "dagger"}
+dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger"}
+dagger-gwt = { module = "com.google.dagger:dagger-gwt", version.ref = "dagger"}
+gdx-core = { module = "com.badlogicgames.gdx:gdx", version.ref = "gdx" }
+gdx-ai = { module = "com.badlogicgames.gdx:gdx-ai", version.ref = "gdxAi" }
+gdx-box2d = { module = "com.badlogicgames.gdx:gdx-box2d", version.ref = "gdx" }
+gdx-controllers-core = { module = "com.badlogicgames.gdx-controllers:gdx-controllers-core", version.ref = "controllers" }
+gdx-controllers-desktop = { module = "com.badlogicgames.gdx-controllers:gdx-controllers-desktop", version.ref = "controllers" }
+gdx-backend-lwjgl3 = { module = "com.badlogicgames.gdx:gdx-backend-lwjgl3", version.ref = "gdx" }
+gdx-backend-gwt = { module = "com.badlogicgames.gdx:gdx-backend-lwjgl3", version.ref = "gdx" }
+textratypist = { module = "com.github.tommyettinger:textratypist", version.ref = "textratypist" }
+[plugins]
+beryx-runtime = { id = "org.beryx.runtime", version.ref = "beryx-runtime"}
+shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
