@@ -75,10 +75,7 @@ public class IntroScreen extends ScreenAdapter {
         audioSetup();
         subtitlesSetup();
 
-        earth_space.addAction(Actions.sequence(
-                actI(),
-                actII()
-        ));
+        earth_space.addAction(Actions.sequence(actI(), actII()));
         inputMultiplexer.addProcessor(processor);
     }
 
@@ -151,31 +148,18 @@ public class IntroScreen extends ScreenAdapter {
                 Actions.run(() -> atomicBombsSound.play()),
                 Actions.delay(4f),
                 Actions.run(() -> {
-                    zebra_king.addAction(Actions.sequence(
-                            Actions.fadeOut(.75f),
-                            Actions.run(() -> zebra_king.setVisible(false)))
-                    );
-                    dragon_queen.addAction(Actions.sequence(
-                            Actions.fadeOut(1f),
-                            Actions.run(() -> dragon_queen.setVisible(false)))
-                    );
+                    zebra_king.addAction(
+                            Actions.sequence(Actions.fadeOut(.75f), Actions.run(() -> zebra_king.setVisible(false))));
+                    dragon_queen.addAction(
+                            Actions.sequence(Actions.fadeOut(1f), Actions.run(() -> dragon_queen.setVisible(false))));
                     missiles_and_explosion_3.addAction(Actions.sequence(
-                            Actions.fadeOut(1f),
-                            Actions.run(() -> missiles_and_explosion_3.setVisible(false)))
-                    );
-                    earth_space.addAction(Actions.sequence(
-                            Actions.fadeOut(1f),
-                            Actions.run(() -> earth_space.setVisible(false)))
-                    );
-                    space.addAction(Actions.sequence(
-                            Actions.fadeOut(1f),
-                            Actions.run(() -> space.setVisible(false)))
-                    );
+                            Actions.fadeOut(1f), Actions.run(() -> missiles_and_explosion_3.setVisible(false))));
+                    earth_space.addAction(
+                            Actions.sequence(Actions.fadeOut(1f), Actions.run(() -> earth_space.setVisible(false))));
+                    space.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.run(() -> space.setVisible(false))));
                     subtitles.addAction(Actions.fadeOut(1f));
-                })
-        );
+                }));
     }
-
 
     private Action actII() {
         return Actions.sequence(
@@ -188,12 +172,10 @@ public class IntroScreen extends ScreenAdapter {
                     sky_dragon.addAction(Actions.sequence(
                             Actions.fadeIn(0),
                             Actions.moveTo(-screenWidth() * .6f, -screenHeight() * .1f, 0),
-                            Actions.moveTo(screenWidth() * 2, screenHeight() * .4f, 30)
-                    ));
+                            Actions.moveTo(screenWidth() * 2, screenHeight() * .4f, 30)));
                     lyze.setPosition(screenWidth() * .05f, 0);
                     lyze.addAction(Actions.sequence(
-                            Actions.fadeIn(0f), Actions.moveTo(-screenWidth(), screenHeight() * .1f, 30f)
-                    ));
+                            Actions.fadeIn(0f), Actions.moveTo(-screenWidth(), screenHeight() * .1f, 30f)));
                     subtitles.addAction(Actions.fadeIn(1f));
                     subtitles.setColor(new Color(0.039f, 0.039f, 0.043f, 1f));
                     subtitles.restart();
@@ -214,8 +196,7 @@ public class IntroScreen extends ScreenAdapter {
                 Actions.delay(2f),
                 Actions.run(() -> black_screen.addAction(Actions.fadeIn(1f))),
                 Actions.delay(3f),
-                Actions.run(router::goToLevel)
-        );
+                Actions.run(router::goToLevel));
     }
 
     private int screenWidth() {
@@ -249,9 +230,12 @@ public class IntroScreen extends ScreenAdapter {
         dragon_queen = new Image(assetManager.get("images/included/intro/dragon_queen.png", Texture.class));
         earth_ground = new Image(assetManager.get("images/included/intro/earth_ground.png", Texture.class));
         earth_space = new Image(assetManager.get("images/included/intro/earth_space.png", Texture.class));
-        missiles_and_explosion_1 = new Image(assetManager.get("images/included/intro/missiles_and_explosion_1.png", Texture.class));
-        missiles_and_explosion_2 = new Image(assetManager.get("images/included/intro/missiles_and_explosion_2.png", Texture.class));
-        missiles_and_explosion_3 = new Image(assetManager.get("images/included/intro/missiles_and_explosion_3.png", Texture.class));
+        missiles_and_explosion_1 =
+                new Image(assetManager.get("images/included/intro/missiles_and_explosion_1.png", Texture.class));
+        missiles_and_explosion_2 =
+                new Image(assetManager.get("images/included/intro/missiles_and_explosion_2.png", Texture.class));
+        missiles_and_explosion_3 =
+                new Image(assetManager.get("images/included/intro/missiles_and_explosion_3.png", Texture.class));
         silo_and_skeleton = new Image(assetManager.get("images/included/intro/silo_and_skeleton.png", Texture.class));
         sky_and_mountains = new Image(assetManager.get("images/included/intro/sky_and_mountains.png", Texture.class));
         sky_dragon = new Image(assetManager.get("images/included/intro/sky_dragon.png", Texture.class));
