@@ -5,16 +5,11 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import io.github.fourlastor.game.component.ActorComponent.Layer;
 import io.github.fourlastor.game.level.blueprint.ChunkFactory;
-import io.github.fourlastor.game.ui.FixedImage;
 import javax.inject.Inject;
 
 public class LevelScreen extends ScreenAdapter {
@@ -25,7 +20,7 @@ public class LevelScreen extends ScreenAdapter {
 
     private final ChunkFactory chunkFactory;
     private final World world;
-    private Music music;
+    private final Music music;
 
     @Inject
     public LevelScreen(
@@ -34,8 +29,7 @@ public class LevelScreen extends ScreenAdapter {
             EntitiesFactory entitiesFactory,
             ChunkFactory chunkFactory,
             World world,
-            AssetManager assetManager,
-            TextureAtlas atlas) {
+            AssetManager assetManager) {
         this.engine = engine;
         this.viewport = viewport;
         this.entitiesFactory = entitiesFactory;
