@@ -10,9 +10,12 @@ on:
 
 jobs:
   build:
+    env:
+      ITCH_PROJECT: 'fourlastor/gdx-java-base'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: jdno/setup-butler@v1
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
@@ -23,6 +26,7 @@ jobs:
         with:
           arguments: --no-daemon html:dist
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: html/build/dist
+        if: startsWith(github.ref, 'refs/tags/')
+        run: butler push html/build/dist $ITCH_PROJECT:html
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
