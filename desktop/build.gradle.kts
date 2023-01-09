@@ -26,7 +26,6 @@ val jarName = property("io.github.fourlastor.game.jar_name") as String
 application {
     val className = "io.github.fourlastor.game.DesktopLauncher"
     mainClass.set(className)
-//    mainClassName = className
 }
 
 tasks.withType(ShadowJar::class.java) {
