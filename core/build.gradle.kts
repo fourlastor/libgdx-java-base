@@ -44,7 +44,7 @@ tasks.create("packTextures") {
 dependencies {
     implementation(libs.gdx.core)
     implementation(libs.gdx.ai)
-    implementation(libs.gdx.box2d)
+    implementation(libs.gdx.box2d.core)
     implementation(libs.gdx.controllers.core)
     implementation(libs.ashley)
     implementation(libs.textratypist)
