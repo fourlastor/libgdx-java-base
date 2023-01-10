@@ -39,7 +39,7 @@ public class GdxGame extends Game implements Router {
     public void create() {
         if (Gdx.app.getType() != Application.ApplicationType.Android) {
             Cursor customCursor =
-                    Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("images/included/cursor.png")), 0, 0);
+                    Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("images/included/whitePixel.png")), 0, 0);
             Gdx.graphics.setCursor(customCursor);
         }
         Gdx.input.setInputProcessor(multiplexer);

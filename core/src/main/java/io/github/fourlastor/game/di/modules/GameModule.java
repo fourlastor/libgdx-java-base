@@ -18,7 +18,7 @@ import javax.inject.Singleton;
 public class GameModule {
 
     private static final String PATH_TEXTURE_ATLAS = "images/included/packed/images.pack.atlas";
-    private static final String WHITE_PIXEL = "white-pixel";
+    public static final String WHITE_PIXEL = "white-pixel";
 
     @Provides
     @Singleton
@@ -45,7 +45,7 @@ public class GameModule {
     @Singleton
     @Named(WHITE_PIXEL)
     public TextureRegion whitePixel(TextureAtlas atlas) {
-        return atlas.findRegion("whitePixel.png");
+        return atlas.findRegion("whitePixel");
     }
 
     @Provides
