@@ -10,7 +10,7 @@
 	<inherits name="textratypist" />
 	<inherits name='com.badlogic.ashley_gwt' />
 
-	<inherits name='MyGdxGame' />
+	<inherits name='GdxGame' />
 	<entry-point class='io.github.fourlastor.game.client.HtmlLauncher' />
 	<set-configuration-property name='xsiframe.failIfScriptTag' value='FALSE'/>
 	<set-configuration-property name="gdx.assetpath" value="../assets" />
