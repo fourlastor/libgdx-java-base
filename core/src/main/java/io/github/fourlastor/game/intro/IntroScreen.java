@@ -5,13 +5,10 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -22,18 +19,21 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.github.tommyettinger.textra.TypingLabel;
+import io.github.fourlastor.game.di.modules.GameModule;
 import io.github.fourlastor.game.route.Router;
+
 import javax.inject.Inject;
+import javax.inject.Named;
 
 public class IntroScreen extends ScreenAdapter {
 
-    public static final Color CLEAR_COLOR = Color.valueOf("0a0a0b");
+    public static final Color CLEAR_COLOR = Color.valueOf("000000");
     private final Router router;
     private final InputMultiplexer inputMultiplexer;
-    private final AssetManager assetManager;
     private final Stage stage;
     private final Viewport viewport;
 
+    private final TextureRegion pixel;
     private Image dragon_queen;
     private Image earth_ground;
     private Image earth_space;
@@ -50,18 +50,11 @@ public class IntroScreen extends ScreenAdapter {
 
     private TypingLabel subtitles;
 
-    private Sound missilesSound;
-    private Sound atomicBombsSound;
-    private Sound voiceSound;
-    private Sound clickSound;
-    private Music musicMusic;
-    private Music ambianceMusic;
-
     @Inject
-    public IntroScreen(Router router, InputMultiplexer inputMultiplexer, AssetManager assetManager) {
+    public IntroScreen(Router router, InputMultiplexer inputMultiplexer, @Named(GameModule.WHITE_PIXEL) TextureRegion pixel) {
         this.router = router;
         this.inputMultiplexer = inputMultiplexer;
-        this.assetManager = assetManager;
+        this.pixel = pixel;
         float screenHeight = Gdx.graphics.getHeight();
         float screenWidth = screenHeight / 16f * 9f;
 
@@ -72,7 +65,6 @@ public class IntroScreen extends ScreenAdapter {
     @Override
     public void show() {
         imageSetup();
-        audioSetup();
         subtitlesSetup();
 
         earth_space.addAction(Actions.sequence(actI(), actII()));
@@ -87,24 +79,18 @@ public class IntroScreen extends ScreenAdapter {
     @Override
     public void hide() {
         inputMultiplexer.removeProcessor(processor);
-        musicMusic.stop();
-        ambianceMusic.stop();
-        voiceSound.stop();
-        atomicBombsSound.stop();
-        missilesSound.stop();
     }
 
     private final InputProcessor processor = new InputAdapter() {
         @Override
         public boolean keyUp(int keycode) {
-            clickSound.play(.25f);
-            router.goToLevel();
+            System.out.println("Go to level");
             return true;
         }
 
         @Override
         public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-            router.goToLevel();
+            System.out.println("Go to level");
             return true;
         }
     };
@@ -125,8 +111,6 @@ public class IntroScreen extends ScreenAdapter {
                     missiles_and_explosion_1.addAction(Actions.fadeIn(1f));
                     subtitles.restart();
                     subtitles.setText("The war of the floating cities...");
-                    missilesSound.play(.25f);
-                    voiceSound.play();
                 }),
                 Actions.delay(.1f),
                 Actions.run(() -> zebra_king.addAction(Actions.fadeIn(6f))),
@@ -145,7 +129,6 @@ public class IntroScreen extends ScreenAdapter {
                     missiles_and_explosion_3.addAction(Actions.fadeIn(1f));
                 }),
                 Actions.delay(.2f),
-                Actions.run(() -> atomicBombsSound.play()),
                 Actions.delay(4f),
                 Actions.run(() -> {
                     zebra_king.addAction(
@@ -164,8 +147,6 @@ public class IntroScreen extends ScreenAdapter {
     private Action actII() {
         return Actions.sequence(
                 Actions.run(() -> {
-                    ambianceMusic.setVolume(.5f);
-                    ambianceMusic.play();
                     sky_and_mountains.addAction(Actions.fadeIn(2));
                     earth_ground.addAction(Actions.fadeIn(2));
                     silo_and_skeleton.addAction(Actions.fadeIn(2));
@@ -209,7 +190,7 @@ public class IntroScreen extends ScreenAdapter {
 
     private void subtitlesSetup() {
         Label.LabelStyle label32Style = new Label.LabelStyle();
-        label32Style.font = new BitmapFont(Gdx.files.internal("fonts/font-32.fnt"));
+        label32Style.font = new BitmapFont(Gdx.files.internal("fonts/quan-pixel-32.fnt"));
         label32Style.fontColor = Color.WHITE;
         label32Style.font.setColor(Color.WHITE);
         subtitles = new TypingLabel("(press any key to skip)", label32Style);
@@ -227,22 +208,23 @@ public class IntroScreen extends ScreenAdapter {
     }
 
     private void imageSetup() {
-        dragon_queen = new Image(assetManager.get("images/included/intro/dragon_queen.png", Texture.class));
-        earth_ground = new Image(assetManager.get("images/included/intro/earth_ground.png", Texture.class));
-        earth_space = new Image(assetManager.get("images/included/intro/earth_space.png", Texture.class));
+        dragon_queen = new Image(pixel);
+        dragon_queen.setColor(0, 1, 0, 1);
+        earth_ground = new Image(pixel);
+        earth_space = new Image(pixel);
         missiles_and_explosion_1 =
-                new Image(assetManager.get("images/included/intro/missiles_and_explosion_1.png", Texture.class));
+                new Image(pixel);
         missiles_and_explosion_2 =
-                new Image(assetManager.get("images/included/intro/missiles_and_explosion_2.png", Texture.class));
+                new Image(pixel);
         missiles_and_explosion_3 =
-                new Image(assetManager.get("images/included/intro/missiles_and_explosion_3.png", Texture.class));
-        silo_and_skeleton = new Image(assetManager.get("images/included/intro/silo_and_skeleton.png", Texture.class));
-        sky_and_mountains = new Image(assetManager.get("images/included/intro/sky_and_mountains.png", Texture.class));
-        sky_dragon = new Image(assetManager.get("images/included/intro/sky_dragon.png", Texture.class));
-        lyze = new Image(assetManager.get("images/included/intro/lyze.png", Texture.class));
-        space = new Image(assetManager.get("images/included/intro/space.png", Texture.class));
-        zebra_king = new Image(assetManager.get("images/included/intro/zebra_king.png", Texture.class));
-        black_screen = new Image(assetManager.get("images/included/intro/black_screen.png", Texture.class));
+                new Image(pixel);
+        silo_and_skeleton = new Image(pixel);
+        sky_and_mountains = new Image(pixel);
+        sky_dragon = new Image(pixel);
+        lyze = new Image(pixel);
+        space = new Image(pixel);
+        zebra_king = new Image(pixel);
+        black_screen = new Image(pixel);
 
         stage.addActor(space);
         stage.addActor(dragon_queen);
@@ -284,17 +266,5 @@ public class IntroScreen extends ScreenAdapter {
         missiles_and_explosion_3.setSize(screenWidth(), screenHeight());
         zebra_king.setSize(screenWidth(), screenHeight());
         black_screen.setSize(screenWidth(), screenHeight());
-    }
-
-    private void audioSetup() {
-        missilesSound = assetManager.get("audio/sounds/190469__alxy__rapid-missile-launch.wav", Sound.class);
-        atomicBombsSound = assetManager.get("audio/sounds/379352__hard3eat__atomic-bomb.wav", Sound.class);
-        voiceSound = assetManager.get("audio/sounds/sandra_intro.wav", Sound.class);
-        clickSound = assetManager.get("audio/sounds/Blip_Select11.wav", Sound.class);
-
-        musicMusic = assetManager.get("audio/music/428674__phantastonia__cinematic-vio2.wav", Music.class);
-        ambianceMusic = assetManager.get("audio/music/608308__aidangig__radiation-ambience-effect.wav", Music.class);
-        musicMusic.setVolume(.25f);
-        musicMusic.play();
     }
 }

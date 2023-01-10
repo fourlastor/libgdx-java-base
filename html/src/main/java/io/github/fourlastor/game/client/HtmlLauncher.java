@@ -3,7 +3,7 @@ package io.github.fourlastor.game.client;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import io.github.fourlastor.game.MyGdxGame;
+import io.github.fourlastor.game.GdxGame;
 
 public class HtmlLauncher extends GwtApplication {
 
@@ -13,13 +13,13 @@ public class HtmlLauncher extends GwtApplication {
                 GwtApplicationConfiguration config = new GwtApplicationConfiguration(true);
                 config.padHorizontal = 0;
                 config.padVertical = 0;
-                return new GwtApplicationConfiguration(true);
+                return config;
                 // Fixed size application:
                 //return new GwtApplicationConfiguration(480, 320);
         }
 
         @Override
         public ApplicationListener createApplicationListener () {
-                return MyGdxGame.createGame();
+                return GdxGame.createGame();
         }
 }

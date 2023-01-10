@@ -13,7 +13,7 @@ public class DesktopLauncher {
         config.setForegroundFPS(60);
         config.setTitle("Post Apocalyptic");
         setWindowedMode(config);
-        new Lwjgl3Application(MyGdxGame.createGame(), config);
+        new Lwjgl3Application(GdxGame.createGame(), config);
     }
 
     private static void setWindowedMode(Lwjgl3ApplicationConfiguration config) {
