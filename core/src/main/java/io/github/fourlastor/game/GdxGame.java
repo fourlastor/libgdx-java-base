@@ -14,7 +14,7 @@ import io.github.fourlastor.game.level.di.LevelComponent;
 import io.github.fourlastor.game.route.Router;
 import io.github.fourlastor.game.route.RouterModule;
 
-public class MyGdxGame extends Game implements Router {
+public class GdxGame extends Game implements Router {
 
     private final InputMultiplexer multiplexer;
 
@@ -24,7 +24,7 @@ public class MyGdxGame extends Game implements Router {
 
     private Screen pendingScreen = null;
 
-    public MyGdxGame(
+    public GdxGame(
             InputMultiplexer multiplexer,
             LevelComponent.Builder levelScreenFactory,
             IntroComponent.Builder introScreenFactory,
@@ -39,7 +39,7 @@ public class MyGdxGame extends Game implements Router {
     public void create() {
         if (Gdx.app.getType() != Application.ApplicationType.Android) {
             Cursor customCursor =
-                    Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("images/included/cursor.png")), 0, 0);
+                    Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("images/included/whitePixel.png")), 0, 0);
             Gdx.graphics.setCursor(customCursor);
         }
         Gdx.input.setInputProcessor(multiplexer);
@@ -55,7 +55,7 @@ public class MyGdxGame extends Game implements Router {
         super.render();
     }
 
-    public static MyGdxGame createGame() {
+    public static GdxGame createGame() {
         return GameComponent.component().game();
     }
 

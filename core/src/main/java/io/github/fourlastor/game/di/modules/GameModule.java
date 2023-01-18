@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import dagger.Module;
 import dagger.Provides;
-import io.github.fourlastor.game.MyGdxGame;
+import io.github.fourlastor.game.GdxGame;
 import io.github.fourlastor.game.gameover.GameOverComponent;
 import io.github.fourlastor.game.intro.IntroComponent;
 import io.github.fourlastor.game.level.di.LevelComponent;
@@ -18,7 +18,7 @@ import javax.inject.Singleton;
 public class GameModule {
 
     private static final String PATH_TEXTURE_ATLAS = "images/included/packed/images.pack.atlas";
-    private static final String WHITE_PIXEL = "white-pixel";
+    public static final String WHITE_PIXEL = "white-pixel";
 
     @Provides
     @Singleton
@@ -45,17 +45,17 @@ public class GameModule {
     @Singleton
     @Named(WHITE_PIXEL)
     public TextureRegion whitePixel(TextureAtlas atlas) {
-        return atlas.findRegion("whitePixel.png");
+        return atlas.findRegion("whitePixel");
     }
 
     @Provides
     @Singleton
-    public MyGdxGame game(
+    public GdxGame game(
             InputMultiplexer multiplexer,
             LevelComponent.Builder levelBuilder,
             IntroComponent.Builder introBuilder,
             GameOverComponent.Builder gameOverBuilder) {
-        return new MyGdxGame(multiplexer, levelBuilder, introBuilder, gameOverBuilder);
+        return new GdxGame(multiplexer, levelBuilder, introBuilder, gameOverBuilder);
     }
 
     @Provides
