@@ -6,6 +6,7 @@ import com.badlogic.gdx.tools.texturepacker.TexturePacker
 )
 plugins {
     `java-library`
+    idea
     alias(libs.plugins.spotless)
 }
 
@@ -21,6 +22,12 @@ sourceSets.main.configure {
 tasks.compileJava.configure {
     dependsOn(tasks.named("packTextures"))
     options.encoding = "UTF-8"
+}
+
+val gwtCompatPath = "io/github/fourlastor/gwtCompat"
+idea.module { excludeDirs.add(file("src/main/java/$gwtCompatPath")) }
+listOf(tasks.compileJava, tasks.compileTestJava, tasks.javadoc).forEach {
+    it.configure { exclude(gwtCompatPath) }
 }
 
 spotless {

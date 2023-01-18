@@ -3,5 +3,5 @@
 <module>
 	<super-source path="gwtCompat" />
 	<inherits name="dagger.Dagger" />
-	<source path="io/github/fourlastor/game" />
+	<source path="game" />
 </module>
