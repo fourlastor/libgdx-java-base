@@ -21,7 +21,6 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.github.tommyettinger.textra.TypingLabel;
 import io.github.fourlastor.game.di.modules.GameModule;
 import io.github.fourlastor.game.route.Router;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -51,12 +50,13 @@ public class IntroScreen extends ScreenAdapter {
     private TypingLabel subtitles;
 
     @Inject
-    public IntroScreen(Router router, InputMultiplexer inputMultiplexer, @Named(GameModule.WHITE_PIXEL) TextureRegion pixel) {
+    public IntroScreen(
+            Router router, InputMultiplexer inputMultiplexer, @Named(GameModule.WHITE_PIXEL) TextureRegion pixel) {
         this.router = router;
         this.inputMultiplexer = inputMultiplexer;
         this.pixel = pixel;
         float screenHeight = Gdx.graphics.getHeight();
-        float screenWidth = screenHeight / 16f * 9f;
+        float screenWidth = screenHeight / 9f * 16f;
 
         viewport = new FitViewport(screenWidth, screenHeight);
         stage = new Stage(viewport);
@@ -212,12 +212,9 @@ public class IntroScreen extends ScreenAdapter {
         dragon_queen.setColor(0, 1, 0, 1);
         earth_ground = new Image(pixel);
         earth_space = new Image(pixel);
-        missiles_and_explosion_1 =
-                new Image(pixel);
-        missiles_and_explosion_2 =
-                new Image(pixel);
-        missiles_and_explosion_3 =
-                new Image(pixel);
+        missiles_and_explosion_1 = new Image(pixel);
+        missiles_and_explosion_2 = new Image(pixel);
+        missiles_and_explosion_3 = new Image(pixel);
         silo_and_skeleton = new Image(pixel);
         sky_and_mountains = new Image(pixel);
         sky_dragon = new Image(pixel);

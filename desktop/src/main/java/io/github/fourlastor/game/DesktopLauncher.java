@@ -7,6 +7,7 @@ import java.awt.Dimension;
 // Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
 public class DesktopLauncher {
     private static final float PERCENT_OF_SCREEN_SIZE = 0.7f;
+    private static final float ASPECT_RATIO = 16f / 9f;
 
     public static void main(String[] arg) {
         Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
@@ -20,8 +21,7 @@ public class DesktopLauncher {
         Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         int height = (int) (dimension.height * PERCENT_OF_SCREEN_SIZE);
 
-        float aspectRatio = 16f / 9f;
-        int width = (int) (height / aspectRatio);
+        int width = (int) (height * ASPECT_RATIO);
 
         System.out.println("Window dimensions => width: " + width + ", height: " + height);
         config.setWindowedMode(width, height);
