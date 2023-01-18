@@ -24,11 +24,11 @@ tasks.compileJava.configure {
     options.encoding = "UTF-8"
 }
 
+val gwtCompatPath = "io/github/fourlastor/gwtCompat"
+idea.module { excludeDirs.add(file("src/main/java/$gwtCompatPath")) }
 listOf(tasks.compileJava, tasks.compileTestJava, tasks.javadoc).forEach {
-    it.configure { exclude("gwtCompat") }
+    it.configure { exclude(gwtCompatPath) }
 }
-
-idea.module { excludeDirs.add(file("src/main/java/gwtCompat")) }
 
 spotless {
     isEnforceCheck = false
