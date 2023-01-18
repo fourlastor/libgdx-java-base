@@ -56,7 +56,7 @@ public class IntroScreen extends ScreenAdapter {
         this.inputMultiplexer = inputMultiplexer;
         this.pixel = pixel;
         float screenHeight = Gdx.graphics.getHeight();
-        float screenWidth = screenHeight / 16f * 9f;
+        float screenWidth = screenHeight / 9f * 16f;
 
         viewport = new FitViewport(screenWidth, screenHeight);
         stage = new Stage(viewport);
