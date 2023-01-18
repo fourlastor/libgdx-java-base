@@ -134,9 +134,10 @@ runtime {
 
 val architectures = listOf("x64", "aarch64")
 
-tasks.register("prepareAppImageFiles") {
+val prepareAppImageFiles = tasks.register("prepareAppImageFiles") {
     group = "package"
-    dependsOn(tasks.named("runtime"))
+
+    dependsOn(tasks.runtime)
     doLast {
         architectures.forEach { arch ->
             copy {
@@ -155,7 +156,7 @@ tasks.register("prepareAppImageFiles") {
     }
 }
 
-tasks.register("downloadAppImageTools", Download::class.java) {
+val downloadAppImageTools = tasks.register("downloadAppImageTools", Download::class.java) {
     src(
         listOf(
             "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage",
@@ -167,15 +168,15 @@ tasks.register("downloadAppImageTools", Download::class.java) {
     overwrite(false)
 }
 
-tasks.register("prepareAppImageTools", Exec::class.java) {
-    dependsOn(tasks.named("downloadAppImageTools"))
+val prepareAppImageTools = tasks.register("prepareAppImageTools", Exec::class.java) {
+    dependsOn(downloadAppImageTools)
     workingDir("appimagetools")
     commandLine("chmod", "+x", "appimagetool-x86_64.AppImage")
 }
 
-tasks.register("buildAppImages") {
+val buildAppImages = tasks.register("buildAppImages") {
     group = "package"
-    dependsOn(tasks.named("prepareAppImageFiles"), tasks.named("prepareAppImageTools"))
+    dependsOn(prepareAppImageFiles, prepareAppImageTools)
     doLast {
         architectures.forEach { arch ->
             exec {
@@ -191,22 +192,22 @@ tasks.register("buildAppImages") {
     }
 }
 
-tasks.register("packageLinux-x64", Zip::class.java) {
+val packageLinuxX64 = tasks.register<Zip>("packageLinux-x64") {
     group = "package"
     archiveFileName.set("$safeName-linux-x64.zip")
     destinationDirectory.set(rootProject.file(packageOutputDir))
-    dependsOn(tasks.named("buildAppImages"))
+    dependsOn(buildAppImages)
     from(rootProject.file("$packageInputDir/dist-extras"))
     from(rootProject.file("$packageInputDir/linux"))
     from(file("$linuxAppDir/$appImageName-x64"))
     into("$safeName-v$gameVersion-linux-64")
 }
 
-tasks.register("packageLinux-aarch64", Zip::class.java) {
+val packageLinuxAarch64 = tasks.register<Zip>("packageLinux-aarch64") {
     group = "package"
     archiveFileName.set("$safeName-linux-aarch64.zip")
     destinationDirectory.set(rootProject.file(packageOutputDir))
-    dependsOn(tasks.named("buildAppImages"))
+    dependsOn(buildAppImages)
     from(rootProject.file("$packageInputDir/dist-extras"))
     from(file("$linuxAppDir/$appImageName-aarch64"))
     into("$safeName-v$gameVersion-linux-aarch64")
@@ -214,13 +215,12 @@ tasks.register("packageLinux-aarch64", Zip::class.java) {
 
 tasks.register("packageLinux") {
     group = "package"
-    dependsOn(tasks.named("packageLinux-x64"))
-    dependsOn(tasks.named("packageLinux-aarch64"))
+    dependsOn(packageLinuxX64, packageLinuxAarch64)
 }
 
-tasks.register("buildMacAppBundle") {
+val buildMacAppBundle = tasks.register("buildMacAppBundle") {
     group = "package"
-    dependsOn(tasks.named("runtime"))
+    dependsOn(tasks.runtime)
     doLast {
         architectures.forEach { arch ->
             copy {
@@ -238,46 +238,45 @@ tasks.register("buildMacAppBundle") {
 }
 
 
-tasks.register("packageMac-x64", Zip::class.java) {
+val packageMacX64 = tasks.register<Zip>("packageMac-x64") {
     group = "package"
     archiveFileName.set("$safeName-mac-x64.zip")
     destinationDirectory.set(rootProject.file(packageOutputDir))
-    dependsOn(tasks.named("buildMacAppBundle"))
+    dependsOn(buildMacAppBundle)
     from(file("$macAppDir/x64"))
     into("$safeName-v$gameVersion-mac-x64")
 }
 
-tasks.register("packageMac-aarch64", Zip::class.java) {
+val packageMacAarch64 = tasks.register<Zip>("packageMac-aarch64") {
     group = "package"
     archiveFileName.set("$safeName-mac-aarch64.zip")
     destinationDirectory.set(rootProject.file(packageOutputDir))
-    dependsOn(tasks.named("buildMacAppBundle"))
+    dependsOn(buildMacAppBundle)
     from(file("$macAppDir/aarch64"))
     into("$safeName-v$gameVersion-mac-aarch64")
 }
 
 tasks.register("packageMac") {
     group = "package"
-    dependsOn(tasks.named("packageMac-x64"))
-    dependsOn(tasks.named("packageMac-aarch64"))
+    dependsOn(packageMacX64, packageMacAarch64)
 }
 
-tasks.register("packageWindows", Zip::class.java) {
+tasks.register<Zip>("packageWindows") {
     group = "package"
     archiveFileName.set("$safeName-windows64.zip")
     destinationDirectory.set(rootProject.file(packageOutputDir))
-    dependsOn(tasks.named("jpackageImage"))
+    dependsOn(tasks.jpackageImage)
     from(rootProject.file("$packageInputDir/dist-extras"))
     from(rootProject.file("$packageInputDir/windows"))
     from(file(jpackageBuildDir))
     into("$safeName-v$gameVersion-windows-64")
 }
 
-tasks.register("packageOtherPlatforms", Zip::class.java) {
+tasks.register<Zip>("packageOtherPlatforms") {
     group = "package"
     archiveFileName.set("$safeName-otherplatforms.zip")
     destinationDirectory.set(rootProject.file(packageOutputDir))
-    dependsOn(tasks.named("shadowJar"))
+    dependsOn(tasks.shadowJar)
     from(rootProject.file("$packageInputDir/dist-extras"))
     from(rootProject.file("$packageInputDir/otherplatforms"))
     from(file("$buildDir/libs/$safeName.jar"))
