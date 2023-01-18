@@ -41,8 +41,8 @@ gretty {
     portPropertiesFileName = "TEMP_PORTS.properties"
 }
 
-tasks.create("startHttpServer", Copy::class.java) {
-    dependsOn(tasks.named("draftCompileGwt"))
+val startHttpServer = tasks.create("startHttpServer", Copy::class.java) {
+    dependsOn(tasks.draftCompileGwt)
     from("webapp", "war")
     into(gretty.resourceBase)
 }
@@ -58,7 +58,7 @@ tasks.create("beforeRun", AppBeforeIntegrationTestTask::class.java) {
 }
 
 tasks.create("superDev", GwtSuperDev::class.java) {
-    dependsOn(tasks.named("startHttpServer"))
+    dependsOn(startHttpServer)
     doFirst {
         gwt.modules = gwt.devModules
     }
@@ -67,7 +67,7 @@ tasks.create("superDev", GwtSuperDev::class.java) {
 val distDir = "$buildDir/dist"
 
 tasks.create("dist") {
-    dependsOn(tasks.named("clean"), tasks.named("compileGwt"))
+    dependsOn(tasks.clean, tasks.compileGwt)
     doLast {
         copy {
             from("$buildDir/gwt/out") {
