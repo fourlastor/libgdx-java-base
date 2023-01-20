@@ -1,7 +1,7 @@
-package io.github.fourlastor.gdx.ldtk.model;
+package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.gdx.ldtk.LdtkParser;
+import io.github.fourlastor.ldtk.LdtkParser;
 import javax.inject.Inject;
 
 public class LdtkTilesetCustomData {

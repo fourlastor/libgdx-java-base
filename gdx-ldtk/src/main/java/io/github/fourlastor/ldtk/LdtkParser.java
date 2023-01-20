@@ -1,23 +1,23 @@
-package io.github.fourlastor.gdx.ldtk;
+package io.github.fourlastor.ldtk;
 
 import com.badlogic.gdx.utils.FloatArray;
 import com.badlogic.gdx.utils.IntArray;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Null;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
-import org.jetbrains.annotations.Nullable;
 
 public abstract class LdtkParser<T> {
     public abstract T parse(JsonValue value);
 
-    @Nullable
+    @Null
     protected final <V> V getOptional(JsonValue value, String name, Function<JsonValue, V> fn) {
-        if (value.has(name) && !value.isNull()) {
+        if (value.has(name)) {
             JsonValue jsonValue = value.get(name);
-            if (jsonValue.isNull()) {
+            if (jsonValue == null || jsonValue.isNull()) {
                 return null;
             }
             return fn.apply(jsonValue);
@@ -25,7 +25,7 @@ public abstract class LdtkParser<T> {
         return null;
     }
 
-    @Nullable
+    @Null
     protected final Integer getOptionalInt(JsonValue value, String name) {
         return getOptional(value, name, JsonValue::asInt);
     }

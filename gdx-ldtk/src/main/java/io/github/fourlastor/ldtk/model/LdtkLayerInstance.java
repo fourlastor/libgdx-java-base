@@ -1,11 +1,11 @@
-package io.github.fourlastor.gdx.ldtk.model;
+package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.IntArray;
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.gdx.ldtk.LdtkParser;
+import com.badlogic.gdx.utils.Null;
+import io.github.fourlastor.ldtk.LdtkParser;
 import java.util.List;
 import javax.inject.Inject;
-import org.jetbrains.annotations.Nullable;
 
 public class LdtkLayerInstance {
     /**
@@ -54,14 +54,14 @@ public class LdtkLayerInstance {
      * The definition UID of corresponding Tileset, if any.
      * SerialName("__tilesetDefUid")
      */
-    @Nullable
+    @Null
     public final Integer tilesetDefUid;
 
     /**
      * The relative path to corresponding Tileset, if any.
      * SerialName("__tilesetRelPath")
      */
-    @Nullable
+    @Null
     public final String tilesetRelPath;
 
     /**
@@ -86,7 +86,7 @@ public class LdtkLayerInstance {
      * first row from left to right, followed by second row, etc.). `0` means "empty cell" and
      * IntGrid values start at 1. This array size is `__cWid` x `__cHei` cells.
      */
-    @Nullable
+    @Null
     public final IntArray intGridCsv;
 
     /**
@@ -102,7 +102,7 @@ public class LdtkLayerInstance {
     /**
      * This layer can use another tileset by overriding the tileset UID here.
      */
-    @Nullable
+    @Null
     public final Integer overrideTilesetUid;
 
     /**
@@ -140,16 +140,16 @@ public class LdtkLayerInstance {
             float opacity,
             int pxTotalOffsetX,
             int pxTotalOffsetY,
-            @Nullable Integer tilesetDefUid,
-            @Nullable String tilesetRelPath,
+            @Null Integer tilesetDefUid,
+            @Null String tilesetRelPath,
             String type,
             List<LdtkTileInstance> autoLayerTiles,
             List<LdtkEntityInstance> entityInstances,
             List<LdtkTileInstance> gridTiles,
-            @Nullable IntArray intGridCsv,
+            @Null IntArray intGridCsv,
             int layerDefUid,
             int levelId,
-            @Nullable Integer overrideTilesetUid,
+            @Null Integer overrideTilesetUid,
             int pxOffsetX,
             int pxOffsetY,
             int seed,

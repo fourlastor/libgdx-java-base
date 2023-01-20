@@ -1,9 +1,9 @@
-package io.github.fourlastor.gdx.ldtk.model;
+package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.gdx.ldtk.LdtkParser;
+import com.badlogic.gdx.utils.Null;
+import io.github.fourlastor.ldtk.LdtkParser;
 import javax.inject.Inject;
-import org.jetbrains.annotations.Nullable;
 
 public class LdtkFieldInstance {
     /**
@@ -23,7 +23,7 @@ public class LdtkFieldInstance {
      * Boolean, String etc.)<br/> It can also be an `Array` of those same types.
      * SerialName("__value")
      */
-    @Nullable
+    @Null
     public final MultiAssociatedValue value;
 
     /**
@@ -36,15 +36,11 @@ public class LdtkFieldInstance {
      * other Tile guessed from the value, like an Enum)
      * SerialName("__tile")
      */
-    @Nullable
+    @Null
     public final LdtkTileRect tile;
 
     public LdtkFieldInstance(
-            String identifier,
-            String type,
-            @Nullable MultiAssociatedValue value,
-            int defUid,
-            @Nullable LdtkTileRect tile) {
+            String identifier, String type, @Null MultiAssociatedValue value, int defUid, @Null LdtkTileRect tile) {
         this.identifier = identifier;
         this.type = type;
         this.value = value;

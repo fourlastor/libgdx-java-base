@@ -23,5 +23,4 @@ spotless {
 dependencies {
     implementation(libs.dagger.core)
     implementation(libs.gdx.core)
-    implementation(libs.jetbrains.annotations)
 }

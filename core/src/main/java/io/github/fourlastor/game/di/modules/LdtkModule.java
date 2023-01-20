@@ -2,22 +2,22 @@ package io.github.fourlastor.game.di.modules;
 
 import dagger.Binds;
 import dagger.Module;
-import io.github.fourlastor.gdx.ldtk.LdtkParser;
-import io.github.fourlastor.gdx.ldtk.model.LdtkDefinitions;
-import io.github.fourlastor.gdx.ldtk.model.LdtkEntityInstance;
-import io.github.fourlastor.gdx.ldtk.model.LdtkEnumDefinition;
-import io.github.fourlastor.gdx.ldtk.model.LdtkEnumValueDefinition;
-import io.github.fourlastor.gdx.ldtk.model.LdtkFieldInstance;
-import io.github.fourlastor.gdx.ldtk.model.LdtkLayerInstance;
-import io.github.fourlastor.gdx.ldtk.model.LdtkLevelBackgroundPositionData;
-import io.github.fourlastor.gdx.ldtk.model.LdtkLevelDefinition;
-import io.github.fourlastor.gdx.ldtk.model.LdtkMapData;
-import io.github.fourlastor.gdx.ldtk.model.LdtkNeighbourLevelData;
-import io.github.fourlastor.gdx.ldtk.model.LdtkTileInstance;
-import io.github.fourlastor.gdx.ldtk.model.LdtkTileRect;
-import io.github.fourlastor.gdx.ldtk.model.LdtkTilesetCustomData;
-import io.github.fourlastor.gdx.ldtk.model.LdtkTilesetDefinition;
-import io.github.fourlastor.gdx.ldtk.model.MultiAssociatedValue;
+import io.github.fourlastor.ldtk.LdtkParser;
+import io.github.fourlastor.ldtk.model.LdtkDefinitions;
+import io.github.fourlastor.ldtk.model.LdtkEntityInstance;
+import io.github.fourlastor.ldtk.model.LdtkEnumDefinition;
+import io.github.fourlastor.ldtk.model.LdtkEnumValueDefinition;
+import io.github.fourlastor.ldtk.model.LdtkFieldInstance;
+import io.github.fourlastor.ldtk.model.LdtkLayerInstance;
+import io.github.fourlastor.ldtk.model.LdtkLevelBackgroundPositionData;
+import io.github.fourlastor.ldtk.model.LdtkLevelDefinition;
+import io.github.fourlastor.ldtk.model.LdtkMapData;
+import io.github.fourlastor.ldtk.model.LdtkNeighbourLevelData;
+import io.github.fourlastor.ldtk.model.LdtkTileInstance;
+import io.github.fourlastor.ldtk.model.LdtkTileRect;
+import io.github.fourlastor.ldtk.model.LdtkTilesetCustomData;
+import io.github.fourlastor.ldtk.model.LdtkTilesetDefinition;
+import io.github.fourlastor.ldtk.model.MultiAssociatedValue;
 
 @Module
 public interface LdtkModule {

@@ -1,10 +1,10 @@
-package io.github.fourlastor.gdx.ldtk.model;
+package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.gdx.ldtk.LdtkParser;
+import com.badlogic.gdx.utils.Null;
+import io.github.fourlastor.ldtk.LdtkParser;
 import java.util.List;
 import javax.inject.Inject;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * This section contains all the level data. It can be found in 2 distinct forms, depending on
@@ -25,7 +25,7 @@ public class LdtkLevelDefinition {
     /**
      * Position information of the background image, if there is one.
      */
-    @Nullable
+    @Null
     public final LdtkLevelBackgroundPositionData bgPos;
 
     /**
@@ -33,7 +33,7 @@ public class LdtkLevelDefinition {
      * layouts, this array is populated with previous/next levels in array, and `dir` depends on the
      * linear horizontal/vertical layout.
      */
-    @Nullable
+    @Null
     public final List<LdtkNeighbourLevelData> neighbours;
 
     /**
@@ -50,7 +50,7 @@ public class LdtkLevelDefinition {
      * This value is not null if the project option "*Save levels separately*" is enabled. In this
      * case, this **relative** path points to the level Json file.
      */
-    @Nullable
+    @Null
     public final String externalRelPath;
 
     /**
@@ -68,7 +68,7 @@ public class LdtkLevelDefinition {
      * separately*" is enabled, this field will be `null`.<br/> This array is **sorted in display
      * order**: the 1st layer is the top-most and the last is behind.
      */
-    @Nullable
+    @Null
     public final List<LdtkLayerInstance> layerInstances;
 
     /**
@@ -118,14 +118,14 @@ public class LdtkLevelDefinition {
 
     public LdtkLevelDefinition(
             String bgColor,
-            @Nullable LdtkLevelBackgroundPositionData bgPos,
-            @Nullable List<LdtkNeighbourLevelData> neighbours,
+            @Null LdtkLevelBackgroundPositionData bgPos,
+            @Null List<LdtkNeighbourLevelData> neighbours,
             float bgPivotX,
             float bgPivotY,
-            @Nullable String externalRelPath,
+            @Null String externalRelPath,
             List<LdtkFieldInstance> fieldInstances,
             String identifier,
-            @Nullable List<LdtkLayerInstance> layerInstances,
+            @Null List<LdtkLayerInstance> layerInstances,
             int pxHei,
             int pxWid,
             int uid,

@@ -1,30 +1,30 @@
-package io.github.fourlastor.gdx.ldtk.model;
+package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.gdx.ldtk.LdtkParser;
+import com.badlogic.gdx.utils.Null;
+import io.github.fourlastor.ldtk.LdtkParser;
 import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
-import org.jetbrains.annotations.Nullable;
 
 public class MultiAssociatedValue {
-    @Nullable
+    @Null
     public final List<String> stringList;
 
-    @Nullable
+    @Null
     public final List<Map<String, String>> stringMapList;
 
-    @Nullable
+    @Null
     public final Map<String, String> stringMap;
 
-    @Nullable
+    @Null
     public final String content;
 
     public MultiAssociatedValue(
-            @Nullable List<String> stringList,
-            @Nullable List<Map<String, String>> stringMapList,
-            @Nullable Map<String, String> stringMap,
-            @Nullable String content) {
+            @Null List<String> stringList,
+            @Null List<Map<String, String>> stringMapList,
+            @Null Map<String, String> stringMap,
+            @Null String content) {
         this.stringList = stringList;
         this.stringMapList = stringMapList;
         this.stringMap = stringMap;

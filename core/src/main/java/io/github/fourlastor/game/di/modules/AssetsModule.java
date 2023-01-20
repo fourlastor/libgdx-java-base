@@ -5,8 +5,8 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import dagger.Module;
 import dagger.Provides;
-import io.github.fourlastor.gdx.ldtk.LdtkLoader;
-import io.github.fourlastor.gdx.ldtk.model.LdtkMapData;
+import io.github.fourlastor.ldtk.LdtkLoader;
+import io.github.fourlastor.ldtk.model.LdtkMapData;
 import javax.inject.Named;
 import javax.inject.Singleton;
 

@@ -1,12 +1,12 @@
-package io.github.fourlastor.gdx.ldtk.model;
+package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.FloatArray;
 import com.badlogic.gdx.utils.IntArray;
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.gdx.ldtk.LdtkParser;
+import com.badlogic.gdx.utils.Null;
+import io.github.fourlastor.ldtk.LdtkParser;
 import java.util.List;
 import javax.inject.Inject;
-import org.jetbrains.annotations.Nullable;
 
 public class LdtkEntityInstance {
 
@@ -29,7 +29,7 @@ public class LdtkEntityInstance {
      * Optional Tile used to display this entity (it could either be the default Entity tile, or
      * some tile provided by a field value, like an Enum).
      */
-    @Nullable
+    @Null
     public final LdtkTileRect tile;
 
     /**
@@ -73,7 +73,7 @@ public class LdtkEntityInstance {
             IntArray grid,
             String identifier,
             FloatArray pivot,
-            @Nullable LdtkTileRect tile,
+            @Null LdtkTileRect tile,
             int defUid,
             List<LdtkFieldInstance> fieldInstances,
             int height,

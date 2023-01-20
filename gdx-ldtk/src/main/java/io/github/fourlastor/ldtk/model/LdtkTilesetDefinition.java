@@ -1,10 +1,10 @@
-package io.github.fourlastor.gdx.ldtk.model;
+package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.gdx.ldtk.LdtkParser;
+import com.badlogic.gdx.utils.Null;
+import io.github.fourlastor.ldtk.LdtkParser;
 import java.util.List;
 import javax.inject.Inject;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * The `Tileset` definition is the most important part among project definitions. It contains some
@@ -54,7 +54,7 @@ public class LdtkTilesetDefinition {
      * of a loaded one.
      * Possible values: `null`, `LdtkIcons`
      */
-    @Nullable
+    @Null
     public final String embedAtlas;
 
     public final List<LdtkTilesetCustomData> customData;
@@ -68,7 +68,7 @@ public class LdtkTilesetDefinition {
             int spacing,
             int tileGridSize,
             int uid,
-            @Nullable String embedAtlas,
+            @Null String embedAtlas,
             List<LdtkTilesetCustomData> customData) {
         this.identifier = identifier;
         this.padding = padding;

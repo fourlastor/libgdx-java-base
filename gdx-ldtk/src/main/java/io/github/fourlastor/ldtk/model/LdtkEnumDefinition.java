@@ -1,25 +1,25 @@
-package io.github.fourlastor.gdx.ldtk.model;
+package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.gdx.ldtk.LdtkParser;
+import com.badlogic.gdx.utils.Null;
+import io.github.fourlastor.ldtk.LdtkParser;
 import java.util.List;
 import javax.inject.Inject;
-import org.jetbrains.annotations.Nullable;
 
 public class LdtkEnumDefinition {
 
-    @Nullable
+    @Null
     public final String externalFileChecksum;
     /**
      * Relative path to the external file providing this Enum
      */
-    @Nullable
+    @Null
     public final String externalRelPath;
 
     /**
      * Tileset UID if provided
      */
-    @Nullable
+    @Null
     public final Integer iconTilesetUid;
     /**
      * Unique String identifier
@@ -40,9 +40,9 @@ public class LdtkEnumDefinition {
     public final List<LdtkEnumValueDefinition> values;
 
     public LdtkEnumDefinition(
-            @Nullable String externalFileChecksum,
-            @Nullable String externalRelPath,
-            @Nullable Integer iconTilesetUid,
+            @Null String externalFileChecksum,
+            @Null String externalRelPath,
+            @Null Integer iconTilesetUid,
             String identifier,
             int uid,
             List<String> tags,

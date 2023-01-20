@@ -1,4 +1,4 @@
-package io.github.fourlastor.gdx.ldtk;
+package io.github.fourlastor.ldtk;
 
 import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetLoaderParameters;
@@ -8,7 +8,7 @@ import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.JsonReader;
-import io.github.fourlastor.gdx.ldtk.model.LdtkMapData;
+import io.github.fourlastor.ldtk.model.LdtkMapData;
 import javax.inject.Inject;
 
 public class LdtkLoader extends AsynchronousAssetLoader<LdtkMapData, AssetLoaderParameters<LdtkMapData>> {
