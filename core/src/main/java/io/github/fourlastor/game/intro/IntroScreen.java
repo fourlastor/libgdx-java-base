@@ -19,7 +19,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.github.tommyettinger.textra.TypingLabel;
-import io.github.fourlastor.game.di.modules.GameModule;
+import io.github.fourlastor.game.di.modules.AssetsModule;
 import io.github.fourlastor.game.route.Router;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -51,7 +51,7 @@ public class IntroScreen extends ScreenAdapter {
 
     @Inject
     public IntroScreen(
-            Router router, InputMultiplexer inputMultiplexer, @Named(GameModule.WHITE_PIXEL) TextureRegion pixel) {
+            Router router, InputMultiplexer inputMultiplexer, @Named(AssetsModule.WHITE_PIXEL) TextureRegion pixel) {
         this.router = router;
         this.inputMultiplexer = inputMultiplexer;
         this.pixel = pixel;

@@ -23,12 +23,6 @@ import javax.inject.Named;
 public class MapModule {
 
     @Provides
-    @ScreenScoped
-    public JsonReader jsonReader() {
-        return new JsonReader();
-    }
-
-    @Provides
     @Named("map")
     @ScreenScoped
     public JsonValue map(JsonReader reader) {
