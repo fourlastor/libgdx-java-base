@@ -100,10 +100,12 @@ tasks.create("dist") {
 
 java.sourceSets.main.configure {
     compileClasspath += files(project(":core").sourceSets.main.get().allJava.srcDirs)
+    compileClasspath += files(project(":gdx-ldtk").sourceSets.main.get().allJava.srcDirs)
 }
 
 dependencies {
     implementation (project(":core"))
+    implementation (project(":gdx-ldtk")) {}
     implementation (libs.java.inject)
     implementation(libs.gdx.backend.gwt)
     sources(libs.gdx.backend.gwt)
