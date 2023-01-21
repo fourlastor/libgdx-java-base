@@ -40,9 +40,8 @@ public class MultiAssociatedValue {
         public MultiAssociatedValue parse(JsonValue value) {
             return new MultiAssociatedValue(
                     getOptional(value, "stringList", it -> getList(it, JsonValue::asString)),
-                    getOptional(
-                            value, "stringMapList", it -> getList(it, list -> getStringMap(list, JsonValue::asString))),
-                    getOptional(value, "stringMap", it -> getStringMap(it, JsonValue::asString)),
+                    getOptional(value, "stringMapList", it -> getList(it, list -> getMap(list, JsonValue::asString))),
+                    getOptional(value, "stringMap", it -> getMap(it, JsonValue::asString)),
                     getOptional(value, "content", JsonValue::asString));
         }
     }
