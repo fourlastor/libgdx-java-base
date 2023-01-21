@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.RotateByAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import io.github.fourlastor.game.component.ActorComponent;
 import io.github.fourlastor.game.component.AnimatedImageComponent;
 import io.github.fourlastor.game.component.BodyBuilderComponent;
@@ -28,7 +29,6 @@ import io.github.fourlastor.game.level.blueprint.definitions.Platform;
 import io.github.fourlastor.game.level.blueprint.definitions.SawBlade;
 import io.github.fourlastor.game.ui.ParallaxImage;
 import io.github.fourlastor.harlequin.animation.Animation;
-import io.github.fourlastor.harlequin.animation.GdxAnimation;
 import io.github.fourlastor.harlequin.ui.AnimatedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,23 +41,23 @@ public class EntitiesFactory {
 
     private static final float CHARACTER_SCALE_XY = 1f / 40f;
     private static final float SCALE_XY = 1f / 32f;
-    private final Animation<TextureRegion> fallingAnimation;
-    private final Animation<TextureRegion> fishAnimation;
+    private final Animation<Drawable> fallingAnimation;
+    private final Animation<Drawable> fishAnimation;
     private final TextureAtlas textureAtlas;
     private final Sound sawBladeSound;
     private final Sound fishSound;
 
     @Inject
     public EntitiesFactory(
-            @Named(PlayerAnimationsFactory.ANIMATION_FALLING) Animation<TextureRegion> fallingAnimation,
+            @Named(PlayerAnimationsFactory.ANIMATION_FALLING) Animation<Drawable> fallingAnimation,
+            @Named(PlayerAnimationsFactory.ANIMATION_FISH) Animation<Drawable> fishAnimation,
             TextureAtlas textureAtlas,
             AssetManager assetManager) {
         this.fallingAnimation = fallingAnimation;
+        this.fishAnimation = fishAnimation;
         this.textureAtlas = textureAtlas;
         sawBladeSound = assetManager.get("audio/sounds/sawblade.ogg", Sound.class);
         fishSound = assetManager.get("audio/sounds/fish.mp3", Sound.class);
-        fishAnimation = new GdxAnimation<>(
-                0.1f, textureAtlas.findRegions("enemies/wigglingFish/wigglingFish"), Animation.PlayMode.LOOP);
     }
 
     public Entity player() {

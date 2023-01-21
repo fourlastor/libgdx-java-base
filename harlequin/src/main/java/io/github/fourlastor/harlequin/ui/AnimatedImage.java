@@ -1,20 +1,17 @@
 package io.github.fourlastor.harlequin.ui;
 
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.IntMap;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import io.github.fourlastor.harlequin.animation.Animation;
 
 public class AnimatedImage extends Image {
 
-    private IntMap<TextureRegionDrawable> frameCache;
-    private Animation<TextureRegion> animation;
+    private Animation<? extends Drawable> animation;
 
     public boolean playing = true;
     public float playTime = 0f;
 
-    public AnimatedImage(Animation<TextureRegion> animation) {
+    public AnimatedImage(Animation<? extends Drawable> animation) {
         super(animation.getKeyFrame(0));
         setAnimation(animation);
     }
@@ -26,26 +23,17 @@ public class AnimatedImage extends Image {
             return;
         }
         playTime += delta;
-        TextureRegionDrawable frame = frameAt(playTime);
+        Drawable frame = frameAt(playTime);
         setDrawable(frame);
     }
 
-    private TextureRegionDrawable frameAt(float position) {
-        int index = animation.getKeyFrameIndex(position);
-        TextureRegionDrawable cached = frameCache.get(index);
-        if (cached == null) {
-            cached = new TextureRegionDrawable(animation.getKeyFrame(position));
-            frameCache.put(index, cached);
-        }
-        return cached;
+    private Drawable frameAt(float position) {
+        return animation.getKeyFrame(position);
     }
 
-    public void setAnimation(Animation<TextureRegion> animation) {
+    public void setAnimation(Animation<? extends Drawable> animation) {
         this.animation = animation;
-        @SuppressWarnings("UnnecessaryLocalVariable") // for some reason it crashes if using the typed var
-        Animation<?> untypedAnimation = animation;
-        this.frameCache = new IntMap<>(untypedAnimation.getKeyFrames().length);
-        reset();
+        setProgress(0f);
     }
 
     public boolean animationFinished() {
@@ -59,10 +47,6 @@ public class AnimatedImage extends Image {
     public void setProgress(float progress) {
         this.playTime = progress;
         setDrawable(frameAt(progress));
-    }
-
-    public void reset() {
-        setProgress(0f);
     }
 
     public boolean isPlaying() {
