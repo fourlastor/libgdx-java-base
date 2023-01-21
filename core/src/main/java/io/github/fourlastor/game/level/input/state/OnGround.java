@@ -5,19 +5,19 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import io.github.fourlastor.game.component.AnimatedImageComponent;
 import io.github.fourlastor.game.component.BodyComponent;
 import io.github.fourlastor.game.component.PlayerComponent;
 import io.github.fourlastor.game.level.PlayerAnimationsFactory;
+import io.github.fourlastor.harlequin.animation.Animation;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 public class OnGround extends InputState {
 
-    private final Animation<TextureRegion> animation;
+    private final Animation<Drawable> animation;
     private AssetManager assetManager;
 
     @Inject
@@ -25,7 +25,7 @@ public class OnGround extends InputState {
             ComponentMapper<PlayerComponent> players,
             ComponentMapper<BodyComponent> bodies,
             ComponentMapper<AnimatedImageComponent> images,
-            @Named(PlayerAnimationsFactory.ANIMATION_STANDING) Animation<TextureRegion> animation,
+            @Named(PlayerAnimationsFactory.ANIMATION_STANDING) Animation<Drawable> animation,
             AssetManager assetManager) {
         super(players, bodies, images);
         this.animation = animation;
@@ -33,7 +33,7 @@ public class OnGround extends InputState {
     }
 
     @Override
-    protected Animation<TextureRegion> animation() {
+    protected Animation<Drawable> animation() {
         return animation;
     }
 

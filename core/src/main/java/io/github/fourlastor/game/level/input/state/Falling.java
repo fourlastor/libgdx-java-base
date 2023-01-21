@@ -5,20 +5,20 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ai.msg.Telegram;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import io.github.fourlastor.game.component.AnimatedImageComponent;
 import io.github.fourlastor.game.component.BodyComponent;
 import io.github.fourlastor.game.component.PlayerComponent;
 import io.github.fourlastor.game.level.Message;
 import io.github.fourlastor.game.level.PlayerAnimationsFactory;
+import io.github.fourlastor.harlequin.animation.Animation;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 public class Falling extends InputState {
 
     private static final float GRACE_TIME = 0.3f;
-    private final Animation<TextureRegion> animation;
+    private final Animation<Drawable> animation;
     private float attemptedTime;
     private float fallingTime;
 
@@ -27,7 +27,7 @@ public class Falling extends InputState {
             ComponentMapper<PlayerComponent> players,
             ComponentMapper<BodyComponent> bodies,
             ComponentMapper<AnimatedImageComponent> images,
-            @Named(PlayerAnimationsFactory.ANIMATION_FALLING) Animation<TextureRegion> animation) {
+            @Named(PlayerAnimationsFactory.ANIMATION_FALLING) Animation<Drawable> animation) {
         super(players, bodies, images);
         this.animation = animation;
     }
@@ -46,7 +46,7 @@ public class Falling extends InputState {
     }
 
     @Override
-    protected Animation<TextureRegion> animation() {
+    protected Animation<Drawable> animation() {
         return animation;
     }
 

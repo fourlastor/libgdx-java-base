@@ -4,16 +4,16 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import io.github.fourlastor.game.component.AnimatedImageComponent;
 import io.github.fourlastor.game.component.BodyComponent;
 import io.github.fourlastor.game.component.PlayerComponent;
 import io.github.fourlastor.game.level.PlayerAnimationsFactory;
 import io.github.fourlastor.game.level.di.Gravity;
+import io.github.fourlastor.harlequin.animation.Animation;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -21,7 +21,7 @@ public class Jumping extends InputState {
 
     private static final float MAX_JUMP_HEIGHT = 7f;
     public static final float MIN_JUMP_HEIGHT = 2.5f;
-    private final Animation<TextureRegion> animation;
+    private final Animation<Drawable> animation;
     private final float gravity;
     private AssetManager assetManager;
 
@@ -30,7 +30,7 @@ public class Jumping extends InputState {
             ComponentMapper<PlayerComponent> players,
             ComponentMapper<BodyComponent> bodies,
             ComponentMapper<AnimatedImageComponent> images,
-            @Named(PlayerAnimationsFactory.ANIMATION_JUMPING) Animation<TextureRegion> animation,
+            @Named(PlayerAnimationsFactory.ANIMATION_JUMPING) Animation<Drawable> animation,
             @Gravity Vector2 gravity,
             AssetManager assetManager) {
         super(players, bodies, images);
@@ -40,7 +40,7 @@ public class Jumping extends InputState {
     }
 
     @Override
-    protected Animation<TextureRegion> animation() {
+    protected Animation<Drawable> animation() {
         return animation;
     }
 
