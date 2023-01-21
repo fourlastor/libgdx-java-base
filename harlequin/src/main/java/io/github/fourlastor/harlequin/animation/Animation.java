@@ -6,8 +6,6 @@ public interface Animation<T> {
 
     int getKeyFrameIndex(float stateTime);
 
-    T[] getKeyFrames();
-
     PlayMode getPlayMode();
 
     void setPlayMode(PlayMode playMode);
@@ -24,7 +22,6 @@ public interface Animation<T> {
         REVERSED,
         LOOP,
         LOOP_REVERSED,
-        LOOP_PINGPONG,
-        LOOP_RANDOM,
+        LOOP_PING_PONG,
     }
 }
