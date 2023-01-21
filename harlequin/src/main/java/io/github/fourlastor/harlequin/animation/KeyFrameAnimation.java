@@ -28,7 +28,8 @@ public class KeyFrameAnimation<T> implements Animation<T> {
     private int findIndex(float stateTime) {
         searchFrame.start = position(stateTime);
         int result = Collections.binarySearch(values, searchFrame, COMPARATOR);
-        return unwrapInsertionPoint(result);
+        int unwrapped = unwrapInsertionPoint(result);
+        return Math.max(unwrapped, 0);
     }
 
     private int position(float stateTime) {
