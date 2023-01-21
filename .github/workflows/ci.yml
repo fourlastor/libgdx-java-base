@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-format:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -15,7 +15,7 @@ jobs:
         uses: ./.github/actions/gradle-build
         with:
           arguments: build
-  build:
+  check-format:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
