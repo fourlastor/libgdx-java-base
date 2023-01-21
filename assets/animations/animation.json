@@ -1,0 +1,217 @@
+{
+    "skeleton": {
+        "width": 62,
+        "height": 67,
+        "fps": 60,
+        "hash": " ",
+        "name": "Armature"
+    },
+    "bones": [
+        {
+            "name": "root"
+        }
+    ],
+    "slots": [
+        {
+            "name": "sprite",
+            "bone": "root",
+            "attachment": "Idle 0"
+        },
+        {
+            "name": "hitbox",
+            "bone": "root"
+        },
+        {
+            "name": "hurtbox",
+            "bone": "root",
+            "attachment": "hurtbox"
+        }
+    ],
+    "skins": {
+        "default": {
+            "hitbox": {
+                "kick": {
+                    "name": "kick",
+                    "vertexCount": 4,
+                    "vertices": [
+                        4.52,
+                        0.96,
+                        4.56,
+                        -6.14,
+                        28.61,
+                        -6.02,
+                        28.57,
+                        1.08
+                    ],
+                    "type": "boundingbox"
+                }
+            },
+            "hurtbox": {
+                "hurtbox": {
+                    "name": "hurtbox",
+                    "vertexCount": 4,
+                    "vertices": [
+                        -13.45,
+                        21.4,
+                        -13.45,
+                        -28.35,
+                        3.65,
+                        -28.35,
+                        3.65,
+                        21.4
+                    ],
+                    "type": "boundingbox"
+                }
+            },
+            "sprite": {
+                "Walking 3": {
+                    "name": "Walking 3"
+                },
+                "Walking 2": {
+                    "name": "Walking 2"
+                },
+                "Walking 1": {
+                    "name": "Walking 1"
+                },
+                "Walking 0": {
+                    "name": "Walking 0"
+                },
+                "Right Kick 4": {
+                    "name": "Right Kick 4"
+                },
+                "Right Kick 3": {
+                    "name": "Right Kick 3"
+                },
+                "Right Kick 2": {
+                    "name": "Right Kick 2"
+                },
+                "Right Kick 1": {
+                    "name": "Right Kick 1"
+                },
+                "Right Kick 0": {
+                    "name": "Right Kick 0"
+                },
+                "Idle 5": {
+                    "name": "Idle 5"
+                },
+                "Idle 4": {
+                    "name": "Idle 4"
+                },
+                "Idle 3": {
+                    "name": "Idle 3"
+                },
+                "Idle 2": {
+                    "name": "Idle 2"
+                },
+                "Idle 1": {
+                    "name": "Idle 1"
+                },
+                "Idle 0": {
+                    "name": "Idle 0"
+                }
+            }
+        }
+    },
+    "animations": {
+        "idle": {
+            "slots": {
+                "sprite": {
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "Idle 0"
+                        },
+                        {
+                            "time": 0.1667,
+                            "name": "Idle 1"
+                        },
+                        {
+                            "time": 0.3334,
+                            "name": "Idle 2"
+                        },
+                        {
+                            "time": 0.5001,
+                            "name": "Idle 3"
+                        },
+                        {
+                            "time": 0.6668,
+                            "name": "Idle 4"
+                        },
+                        {
+                            "time": 0.8835,
+                            "name": "Idle 5"
+                        }
+                    ]
+                }
+            }
+        },
+        "walking": {
+            "slots": {
+                "sprite": {
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "Walking 0"
+                        },
+                        {
+                            "time": 0.2,
+                            "name": "Walking 1"
+                        },
+                        {
+                            "time": 0.4333,
+                            "name": "Walking 2"
+                        },
+                        {
+                            "time": 0.6666,
+                            "name": "Walking 3"
+                        }
+                    ]
+                }
+            }
+        },
+        "attack_0": {
+            "slots": {
+                "sprite": {
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "Right Kick 0"
+                        },
+                        {
+                            "time": 0.1167,
+                            "name": "Right Kick 1"
+                        },
+                        {
+                            "time": 0.3,
+                            "name": "Right Kick 2"
+                        },
+                        {
+                            "time": 0.4333,
+                            "name": "Right Kick 3"
+                        },
+                        {
+                            "time": 0.5666,
+                            "name": "Right Kick 4"
+                        }
+                    ]
+                },
+                "hitbox": {
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": ""
+                        },
+                        {
+                            "time": 0.3,
+                            "name": "kick"
+                        },
+                        {
+                            "time": 0.4333,
+                            "name": ""
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

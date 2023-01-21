@@ -8,6 +8,7 @@ import io.github.fourlastor.game.di.modules.GameModule;
 import io.github.fourlastor.game.di.modules.GdxModule;
 import io.github.fourlastor.game.di.modules.LdtkModule;
 import io.github.fourlastor.game.di.modules.ScreensModule;
+import io.github.fourlastor.game.di.modules.SpineModule;
 import javax.inject.Singleton;
 
 @Singleton
@@ -19,6 +20,7 @@ import javax.inject.Singleton;
             EcsModule.class,
             ScreensModule.class,
             LdtkModule.class,
+            SpineModule.class,
         })
 public interface GameComponent {
     GdxGame game();
