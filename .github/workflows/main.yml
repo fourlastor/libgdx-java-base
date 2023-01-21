@@ -18,9 +18,9 @@ jobs:
       - uses: ./.github/actions/setup
       - uses: jdno/setup-butler@v1
       - name: Build
-        uses: gradle/gradle-build-action@v2
+        uses: ./.github/actions/gradle-build
         with:
-          arguments: --no-daemon html:dist
+          arguments: html:dist
       - name: Deploy 🚀
         if: startsWith(github.ref, 'refs/tags/')
         run: butler push html/build/dist $ITCH_PROJECT:html
