@@ -21,6 +21,7 @@ spotless {
 }
 
 dependencies {
-    implementation(libs.dagger.core)
-    implementation(libs.gdx.core)
+    api(project(":gdx-json-parser"))
+    api(libs.dagger.core)
+    api(libs.gdx.core)
 }

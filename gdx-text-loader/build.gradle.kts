@@ -21,6 +21,6 @@ spotless {
 }
 
 dependencies {
-    implementation(libs.dagger.core)
-    implementation(libs.gdx.core)
+    api(libs.dagger.core)
+    api(libs.gdx.core)
 }

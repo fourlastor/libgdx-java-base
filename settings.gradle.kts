@@ -3,9 +3,10 @@
 include(":desktop")
 include(":core")
 include(":html")
+include(":gdx-json-parser")
 include(":gdx-ldtk-loader")
-include(":harlequin")
 include(":gdx-text-loader")
+include(":harlequin")
 
 dependencyResolutionManagement {
     versionCatalogs { create("libs") { from(files("libs.versions.toml")) } }
