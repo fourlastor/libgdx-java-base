@@ -1,11 +1,12 @@
 package io.github.fourlastor.game.level;
 
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import dagger.Module;
 import dagger.Provides;
 import io.github.fourlastor.game.di.ScreenScoped;
+import io.github.fourlastor.harlequin.animation.Animation;
+import io.github.fourlastor.harlequin.animation.GdxAnimation;
 import javax.inject.Named;
 
 @Module
@@ -21,28 +22,31 @@ public class PlayerAnimationsFactory {
     @ScreenScoped
     @Named(ANIMATION_STANDING)
     public Animation<TextureRegion> standing(TextureAtlas textureAtlas) {
-        return new Animation<>(FRAME_DURATION, textureAtlas.findRegions(ANIMATION_STANDING), Animation.PlayMode.LOOP);
+        return new GdxAnimation<>(
+                FRAME_DURATION, textureAtlas.findRegions(ANIMATION_STANDING), Animation.PlayMode.LOOP);
     }
 
     @Provides
     @ScreenScoped
     @Named(ANIMATION_FALLING)
     public Animation<TextureRegion> falling(TextureAtlas textureAtlas) {
-        return new Animation<>(FRAME_DURATION, textureAtlas.findRegions(ANIMATION_FALLING), Animation.PlayMode.NORMAL);
+        return new GdxAnimation<>(
+                FRAME_DURATION, textureAtlas.findRegions(ANIMATION_FALLING), Animation.PlayMode.NORMAL);
     }
 
     @Provides
     @ScreenScoped
     @Named(ANIMATION_JUMPING)
     public Animation<TextureRegion> jumping(TextureAtlas textureAtlas) {
-        return new Animation<>(FRAME_DURATION, textureAtlas.findRegions(ANIMATION_JUMPING), Animation.PlayMode.NORMAL);
+        return new GdxAnimation<>(
+                FRAME_DURATION, textureAtlas.findRegions(ANIMATION_JUMPING), Animation.PlayMode.NORMAL);
     }
 
     @Provides
     @ScreenScoped
     @Named(ANIMATION_CHARGE_JUMP)
     public Animation<TextureRegion> chargeJump(TextureAtlas textureAtlas) {
-        return new Animation<>(
+        return new GdxAnimation<>(
                 FRAME_DURATION, textureAtlas.findRegions(ANIMATION_CHARGE_JUMP), Animation.PlayMode.NORMAL);
     }
 }

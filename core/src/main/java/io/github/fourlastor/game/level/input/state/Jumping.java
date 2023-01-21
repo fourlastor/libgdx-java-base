@@ -4,7 +4,6 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -14,6 +13,7 @@ import io.github.fourlastor.game.component.BodyComponent;
 import io.github.fourlastor.game.component.PlayerComponent;
 import io.github.fourlastor.game.level.PlayerAnimationsFactory;
 import io.github.fourlastor.game.level.di.Gravity;
+import io.github.fourlastor.harlequin.animation.Animation;
 import javax.inject.Inject;
 import javax.inject.Named;
 

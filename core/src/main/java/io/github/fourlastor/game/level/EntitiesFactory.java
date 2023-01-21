@@ -3,7 +3,6 @@ package io.github.fourlastor.game.level;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -28,6 +27,8 @@ import io.github.fourlastor.game.level.blueprint.definitions.MovingPlatform;
 import io.github.fourlastor.game.level.blueprint.definitions.Platform;
 import io.github.fourlastor.game.level.blueprint.definitions.SawBlade;
 import io.github.fourlastor.game.ui.ParallaxImage;
+import io.github.fourlastor.harlequin.animation.Animation;
+import io.github.fourlastor.harlequin.animation.GdxAnimation;
 import io.github.fourlastor.harlequin.ui.AnimatedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +56,7 @@ public class EntitiesFactory {
         this.textureAtlas = textureAtlas;
         sawBladeSound = assetManager.get("audio/sounds/sawblade.ogg", Sound.class);
         fishSound = assetManager.get("audio/sounds/fish.mp3", Sound.class);
-        fishAnimation = new Animation<>(
+        fishAnimation = new GdxAnimation<>(
                 0.1f, textureAtlas.findRegions("enemies/wigglingFish/wigglingFish"), Animation.PlayMode.LOOP);
     }
 

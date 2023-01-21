@@ -6,12 +6,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import io.github.fourlastor.game.component.AnimatedImageComponent;
 import io.github.fourlastor.game.component.BodyComponent;
 import io.github.fourlastor.game.component.PlayerComponent;
 import io.github.fourlastor.game.level.PlayerAnimationsFactory;
+import io.github.fourlastor.harlequin.animation.Animation;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -34,7 +34,7 @@ public class ChargeJump extends InputState {
     }
 
     @Override
-    protected Animation<TextureRegion> animation() {
+    protected io.github.fourlastor.harlequin.animation.Animation<TextureRegion> animation() {
         return animation;
     }
 
