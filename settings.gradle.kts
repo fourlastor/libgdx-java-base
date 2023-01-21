@@ -4,6 +4,7 @@ include(":desktop")
 include(":core")
 include(":html")
 include(":gdx-ldtk-loader")
+include(":harlequin")
 include(":gdx-text-loader")
 
 dependencyResolutionManagement {

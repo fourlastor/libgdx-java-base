@@ -1,7 +1,7 @@
 package io.github.fourlastor.game.component;
 
 import com.badlogic.ashley.core.Component;
-import io.github.fourlastor.game.ui.AnimatedImage;
+import io.github.fourlastor.harlequin.ui.AnimatedImage;
 
 public class AnimatedImageComponent implements Component {
 

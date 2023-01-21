@@ -53,6 +53,7 @@ tasks.create("packTextures") {
 dependencies {
     implementation(project(":gdx-ldtk-loader"))
     implementation(project(":gdx-text-loader"))
+    implementation(project(":harlequin"))
     implementation(libs.gdx.core)
     implementation(libs.gdx.ai)
     implementation(libs.gdx.box2d.core)
