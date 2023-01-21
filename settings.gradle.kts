@@ -3,7 +3,7 @@
 include(":desktop")
 include(":core")
 include(":html")
-include(":gdx-ldtk")
+include(":gdx-ldtk-loader")
 include(":gdx-text-loader")
 
 dependencyResolutionManagement {

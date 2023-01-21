@@ -51,7 +51,7 @@ tasks.create("packTextures") {
 }
 
 dependencies {
-    implementation(project(":gdx-ldtk"))
+    implementation(project(":gdx-ldtk-loader"))
     implementation(project(":gdx-text-loader"))
     implementation(libs.gdx.core)
     implementation(libs.gdx.ai)
