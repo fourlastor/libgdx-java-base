@@ -58,7 +58,7 @@ public abstract class JsonParser<T> {
         return values;
     }
 
-    protected final <V> Map<String, V> getStringMap(JsonValue value, Function<JsonValue, V> fn) {
+    protected final <V> Map<String, V> getMap(JsonValue value, Function<JsonValue, V> fn) {
         HashMap<String, V> values = new HashMap<>();
         for (JsonValue entry : value) {
             values.put(entry.name, fn.apply(entry));
