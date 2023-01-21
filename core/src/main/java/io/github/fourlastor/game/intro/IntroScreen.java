@@ -35,7 +35,7 @@ public class IntroScreen extends ScreenAdapter {
     private static final int T2 = 800;
     private static final int T3 = 1600;
     private static final float DURATION = 2f;
-    private static final Animation.PlayMode PLAY_MODE = Animation.PlayMode.NORMAL;
+    private static final Animation.PlayMode PLAY_MODE = Animation.PlayMode.LOOP_PING_PONG;
     private final InputMultiplexer inputMultiplexer;
     private final Stage stage;
     private final Viewport viewport;

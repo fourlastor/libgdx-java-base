@@ -15,6 +15,7 @@ public class KeyFrameAnimation<T> implements Animation<T> {
     private final int durationMs;
 
     private PlayMode playMode;
+    private int lastFrameIndex = -1;
 
     public KeyFrameAnimation(List<KeyFrame<T>> values, float duration, PlayMode playMode) {
         this.values = values;
@@ -25,11 +26,31 @@ public class KeyFrameAnimation<T> implements Animation<T> {
 
     private final SearchFrame<T> searchFrame = new SearchFrame<>();
 
-    private int findIndex(float stateTime) {
-        searchFrame.start = position(stateTime);
-        int result = Collections.binarySearch(values, searchFrame, COMPARATOR);
-        int unwrapped = unwrapInsertionPoint(result);
-        return Math.max(unwrapped, 0);
+    private int findIndex(int position) {
+        if (values.size() <= 1) {
+            return 0;
+        }
+        if (lastFrameIndex >= 0) {
+            KeyFrame<T> lastFrame = get(lastFrameIndex);
+            if (lastFrame.start() <= position) {
+                if (lastFrameIndex == values.size() - 1) {
+                    return lastFrameIndex;
+                }
+                KeyFrame<T> nextFrame = get(lastFrameIndex + 1);
+                if (nextFrame.start() >= position) {
+                    return lastFrameIndex;
+                }
+            }
+        }
+        searchFrame.start = position;
+        int found = Collections.binarySearch(values, searchFrame, COMPARATOR);
+        int unwrapped = unwrapInsertionPoint(found);
+        int frame = Math.max(unwrapped, 0);
+        try {
+            return frame;
+        } finally {
+            lastFrameIndex = frame;
+        }
     }
 
     private int position(float stateTime) {
@@ -79,7 +100,7 @@ public class KeyFrameAnimation<T> implements Animation<T> {
     }
 
     private KeyFrame<T> get(int index) {
-        return values.get(index);
+        return values.get(index % values.size());
     }
 
     /**
@@ -93,12 +114,13 @@ public class KeyFrameAnimation<T> implements Animation<T> {
 
     @Override
     public T getKeyFrame(float stateTime) {
-        return get(findIndex(stateTime)).value();
+        int index = findIndex(position(stateTime));
+        return get(index).value();
     }
 
     @Override
     public int getKeyFrameIndex(float stateTime) {
-        return findIndex(stateTime);
+        return findIndex(position(stateTime));
     }
 
     @Override
