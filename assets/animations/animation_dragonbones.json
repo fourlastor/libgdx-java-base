@@ -1,0 +1,159 @@
+{
+    "frameRate": 16,
+    "name": "animation",
+    "version": "5.5",
+    "compatibleVersion": "5.5",
+    "armature": [
+        {
+            "type": "Armature",
+            "frameRate": 16,
+            "name": "Armature",
+            "aabb": {
+                "x": -50,
+                "y": -50,
+                "width": 100,
+                "height": 100
+            },
+            "bone": [
+                {
+                    "name": "root"
+                }
+            ],
+            "slot": [
+                {
+                    "displayIndex": 4,
+                    "name": "square",
+                    "parent": "root"
+                },
+                {
+                    "displayIndex": 1,
+                    "name": "root_boundingBox",
+                    "parent": "root"
+                }
+            ],
+            "skin": [
+                {
+                    "slot": [
+                        {
+                            "name": "root_boundingBox",
+                            "display": [
+                                {
+                                    "type": "boundingBox",
+                                    "name": "root_boundingBox",
+                                    "subType": "polygon",
+                                    "vertices": [
+                                        -20.01,
+                                        -20.01,
+                                        -20.01,
+                                        20.01,
+                                        20.01,
+                                        20.01,
+                                        20.01,
+                                        -20.01
+                                    ]
+                                },
+                                {
+                                    "type": "boundingBox",
+                                    "name": "root_boundingBox1",
+                                    "subType": "polygon",
+                                    "vertices": [
+                                        -50,
+                                        -50,
+                                        -50,
+                                        50,
+                                        50,
+                                        50,
+                                        50,
+                                        -50
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "square",
+                            "display": [
+                                {
+                                    "name": "frame_5"
+                                },
+                                {
+                                    "name": "frame_4"
+                                },
+                                {
+                                    "name": "frame_3"
+                                },
+                                {
+                                    "name": "frame_2"
+                                },
+                                {
+                                    "name": "frame_1"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "animation": [
+                {
+                    "duration": 40,
+                    "playTimes": 0,
+                    "name": "animtion0",
+                    "slot": [
+                        {
+                            "name": "square",
+                            "displayFrame": [
+                                {
+                                    "duration": 8,
+                                    "value": 4
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 3
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 2
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 1
+                                },
+                                {
+                                    "duration": 8
+                                },
+                                {
+                                    "duration": 0,
+                                    "value": 4
+                                }
+                            ]
+                        },
+                        {
+                            "name": "root_boundingBox",
+                            "displayFrame": [
+                                {
+                                    "duration": 8,
+                                    "value": 1
+                                },
+                                {
+                                    "duration": 16
+                                },
+                                {
+                                    "duration": 16,
+                                    "value": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "defaultActions": [
+                {
+                    "gotoAndPlay": "animtion0"
+                }
+            ],
+            "canvas": {
+                "width": 128,
+                "height": 128
+            }
+        }
+    ]
+}
