@@ -14,6 +14,7 @@ import io.github.fourlastor.harlequin.loader.dragonbones.model.DragonBonesDispla
 import io.github.fourlastor.harlequin.loader.dragonbones.model.DragonBonesEntity;
 import io.github.fourlastor.harlequin.loader.dragonbones.model.DragonBonesSkin;
 import io.github.fourlastor.harlequin.loader.dragonbones.model.DragonBonesSkinSlot;
+import io.github.fourlastor.harlequin.loader.dragonbones.model.DragonBonesTransform;
 import io.github.fourlastor.json.JsonParser;
 
 @Module
@@ -36,6 +37,9 @@ public interface DragonBonesModule {
 
     @Binds
     JsonParser<DragonBonesBone> bindBone(DragonBonesBone.Parser parser);
+
+    @Binds
+    JsonParser<DragonBonesTransform> bindTransform(DragonBonesTransform.Parser parser);
 
     @Binds
     JsonParser<DragonBonesCanvas> bindCanvas(DragonBonesCanvas.Parser parser);

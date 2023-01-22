@@ -17,13 +17,21 @@
             "bone": [
                 {
                     "name": "root"
+                },
+                {
+                    "name": "bone",
+                    "parent": "root",
+                    "transform": {
+                        "x": 25.5892,
+                        "y": 24.5791
+                    }
                 }
             ],
             "slot": [
                 {
                     "displayIndex": 4,
                     "name": "square",
-                    "parent": "root"
+                    "parent": "bone"
                 },
                 {
                     "displayIndex": 1,
