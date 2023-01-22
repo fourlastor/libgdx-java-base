@@ -1,7 +1,7 @@
-package io.github.fourlastor.harlequin.spine.loader;
+package io.github.fourlastor.harlequin.loader.spine;
 
 import com.badlogic.gdx.utils.JsonReader;
-import io.github.fourlastor.harlequin.spine.loader.model.SpineEntity;
+import io.github.fourlastor.harlequin.loader.spine.model.SpineEntity;
 import io.github.fourlastor.json.JsonLoader;
 import javax.inject.Inject;
 

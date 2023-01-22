@@ -1,4 +1,4 @@
-package io.github.fourlastor.harlequin.spine.loader;
+package io.github.fourlastor.harlequin.loader.spine;
 
 import io.github.fourlastor.json.JsonParser;
 

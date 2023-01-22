@@ -2,15 +2,15 @@ package io.github.fourlastor.game.di.modules;
 
 import dagger.Binds;
 import dagger.Module;
-import io.github.fourlastor.harlequin.spine.loader.SpineParser;
-import io.github.fourlastor.harlequin.spine.loader.model.SpineAnimation;
-import io.github.fourlastor.harlequin.spine.loader.model.SpineAnimationSlot;
-import io.github.fourlastor.harlequin.spine.loader.model.SpineBone;
-import io.github.fourlastor.harlequin.spine.loader.model.SpineEntity;
-import io.github.fourlastor.harlequin.spine.loader.model.SpineSkeleton;
-import io.github.fourlastor.harlequin.spine.loader.model.SpineSkin;
-import io.github.fourlastor.harlequin.spine.loader.model.SpineSkins;
-import io.github.fourlastor.harlequin.spine.loader.model.SpineSlot;
+import io.github.fourlastor.harlequin.loader.spine.SpineParser;
+import io.github.fourlastor.harlequin.loader.spine.model.SpineAnimation;
+import io.github.fourlastor.harlequin.loader.spine.model.SpineAnimationSlot;
+import io.github.fourlastor.harlequin.loader.spine.model.SpineBone;
+import io.github.fourlastor.harlequin.loader.spine.model.SpineEntity;
+import io.github.fourlastor.harlequin.loader.spine.model.SpineSkeleton;
+import io.github.fourlastor.harlequin.loader.spine.model.SpineSkin;
+import io.github.fourlastor.harlequin.loader.spine.model.SpineSkins;
+import io.github.fourlastor.harlequin.loader.spine.model.SpineSlot;
 
 @Module
 public interface SpineModule {
