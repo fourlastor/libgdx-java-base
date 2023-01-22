@@ -2,7 +2,7 @@ package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Null;
-import io.github.fourlastor.ldtk.LdtkParser;
+import io.github.fourlastor.json.JsonParser;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -82,12 +82,12 @@ public class LdtkTilesetDefinition {
         this.customData = customData;
     }
 
-    public static class Parser extends LdtkParser<LdtkTilesetDefinition> {
+    public static class Parser extends JsonParser<LdtkTilesetDefinition> {
 
-        private final LdtkParser<LdtkTilesetCustomData> customDataParser;
+        private final JsonParser<LdtkTilesetCustomData> customDataParser;
 
         @Inject
-        public Parser(LdtkParser<LdtkTilesetCustomData> customDataParser) {
+        public Parser(JsonParser<LdtkTilesetCustomData> customDataParser) {
             this.customDataParser = customDataParser;
         }
 

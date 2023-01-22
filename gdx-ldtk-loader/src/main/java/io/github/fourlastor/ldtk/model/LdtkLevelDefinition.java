@@ -2,7 +2,7 @@ package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Null;
-import io.github.fourlastor.ldtk.LdtkParser;
+import io.github.fourlastor.json.JsonParser;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -151,19 +151,19 @@ public class LdtkLevelDefinition {
         this.worldDepth = worldDepth;
     }
 
-    public static class Parser extends LdtkParser<LdtkLevelDefinition> {
+    public static class Parser extends JsonParser<LdtkLevelDefinition> {
 
-        private final LdtkParser<LdtkLevelBackgroundPositionData> bgPosParser;
-        private final LdtkParser<LdtkNeighbourLevelData> neighboursParser;
-        private final LdtkParser<LdtkFieldInstance> fieldInstancesParser;
-        private final LdtkParser<LdtkLayerInstance> layerInstancesParser;
+        private final JsonParser<LdtkLevelBackgroundPositionData> bgPosParser;
+        private final JsonParser<LdtkNeighbourLevelData> neighboursParser;
+        private final JsonParser<LdtkFieldInstance> fieldInstancesParser;
+        private final JsonParser<LdtkLayerInstance> layerInstancesParser;
 
         @Inject
         public Parser(
-                LdtkParser<LdtkLevelBackgroundPositionData> bgPosParser,
-                LdtkParser<LdtkNeighbourLevelData> neighboursParser,
-                LdtkParser<LdtkFieldInstance> fieldInstancesParser,
-                LdtkParser<LdtkLayerInstance> layerInstancesParser) {
+                JsonParser<LdtkLevelBackgroundPositionData> bgPosParser,
+                JsonParser<LdtkNeighbourLevelData> neighboursParser,
+                JsonParser<LdtkFieldInstance> fieldInstancesParser,
+                JsonParser<LdtkLayerInstance> layerInstancesParser) {
             this.bgPosParser = bgPosParser;
             this.neighboursParser = neighboursParser;
             this.fieldInstancesParser = fieldInstancesParser;

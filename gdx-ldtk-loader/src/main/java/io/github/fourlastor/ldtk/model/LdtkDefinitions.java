@@ -1,7 +1,7 @@
 package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.ldtk.LdtkParser;
+import io.github.fourlastor.json.JsonParser;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -22,13 +22,13 @@ public class LdtkDefinitions {
         this.tilesets = tilesets;
     }
 
-    public static class Parser extends LdtkParser<LdtkDefinitions> {
+    public static class Parser extends JsonParser<LdtkDefinitions> {
 
-        private final LdtkParser<LdtkEnumDefinition> enumsParser;
-        private final LdtkParser<LdtkTilesetDefinition> tilesetsParser;
+        private final JsonParser<LdtkEnumDefinition> enumsParser;
+        private final JsonParser<LdtkTilesetDefinition> tilesetsParser;
 
         @Inject
-        public Parser(LdtkParser<LdtkEnumDefinition> enumsParser, LdtkParser<LdtkTilesetDefinition> tilesetsParser) {
+        public Parser(JsonParser<LdtkEnumDefinition> enumsParser, JsonParser<LdtkTilesetDefinition> tilesetsParser) {
             this.enumsParser = enumsParser;
             this.tilesetsParser = tilesetsParser;
         }

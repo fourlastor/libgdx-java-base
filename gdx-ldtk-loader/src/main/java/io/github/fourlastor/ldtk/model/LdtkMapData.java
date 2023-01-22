@@ -1,7 +1,7 @@
 package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.ldtk.LdtkParser;
+import io.github.fourlastor.json.JsonParser;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -21,13 +21,13 @@ public class LdtkMapData {
         this.levels = levels;
     }
 
-    public static class Parser extends LdtkParser<LdtkMapData> {
+    public static class Parser extends JsonParser<LdtkMapData> {
 
-        private final LdtkParser<LdtkDefinitions> definitionsParser;
-        private final LdtkParser<LdtkLevelDefinition> levelsParser;
+        private final JsonParser<LdtkDefinitions> definitionsParser;
+        private final JsonParser<LdtkLevelDefinition> levelsParser;
 
         @Inject
-        public Parser(LdtkParser<LdtkDefinitions> definitionsParser, LdtkParser<LdtkLevelDefinition> levelsParser) {
+        public Parser(JsonParser<LdtkDefinitions> definitionsParser, JsonParser<LdtkLevelDefinition> levelsParser) {
             this.definitionsParser = definitionsParser;
             this.levelsParser = levelsParser;
         }

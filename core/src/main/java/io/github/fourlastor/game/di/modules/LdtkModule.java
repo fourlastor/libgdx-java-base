@@ -2,7 +2,7 @@ package io.github.fourlastor.game.di.modules;
 
 import dagger.Binds;
 import dagger.Module;
-import io.github.fourlastor.ldtk.LdtkParser;
+import io.github.fourlastor.json.JsonParser;
 import io.github.fourlastor.ldtk.model.LdtkDefinitions;
 import io.github.fourlastor.ldtk.model.LdtkEntityInstance;
 import io.github.fourlastor.ldtk.model.LdtkEnumDefinition;
@@ -23,48 +23,48 @@ import io.github.fourlastor.ldtk.model.MultiAssociatedValue;
 public interface LdtkModule {
 
     @Binds
-    LdtkParser<LdtkDefinitions> bindLdtkDefinitions(LdtkDefinitions.Parser parser);
+    JsonParser<LdtkDefinitions> bindLdtkDefinitions(LdtkDefinitions.Parser parser);
 
     @Binds
-    LdtkParser<LdtkEntityInstance> bindLdtkEntityInstance(LdtkEntityInstance.Parser parser);
+    JsonParser<LdtkEntityInstance> bindLdtkEntityInstance(LdtkEntityInstance.Parser parser);
 
     @Binds
-    LdtkParser<LdtkEnumDefinition> bindLdtkEnumDefinition(LdtkEnumDefinition.Parser parser);
+    JsonParser<LdtkEnumDefinition> bindLdtkEnumDefinition(LdtkEnumDefinition.Parser parser);
 
     @Binds
-    LdtkParser<LdtkEnumValueDefinition> bindLdtkEnumValueDefinition(LdtkEnumValueDefinition.Parser parser);
+    JsonParser<LdtkEnumValueDefinition> bindLdtkEnumValueDefinition(LdtkEnumValueDefinition.Parser parser);
 
     @Binds
-    LdtkParser<LdtkFieldInstance> bindLdtkFieldInstance(LdtkFieldInstance.Parser parser);
+    JsonParser<LdtkFieldInstance> bindLdtkFieldInstance(LdtkFieldInstance.Parser parser);
 
     @Binds
-    LdtkParser<LdtkLayerInstance> bindLdtkLayerInstance(LdtkLayerInstance.Parser parser);
+    JsonParser<LdtkLayerInstance> bindLdtkLayerInstance(LdtkLayerInstance.Parser parser);
 
     @Binds
-    LdtkParser<LdtkLevelBackgroundPositionData> bindLdtkLevelBackgroundPositionData(
+    JsonParser<LdtkLevelBackgroundPositionData> bindLdtkLevelBackgroundPositionData(
             LdtkLevelBackgroundPositionData.Parser parser);
 
     @Binds
-    LdtkParser<LdtkLevelDefinition> bindLdtkLevelDefinition(LdtkLevelDefinition.Parser parser);
+    JsonParser<LdtkLevelDefinition> bindLdtkLevelDefinition(LdtkLevelDefinition.Parser parser);
 
     @Binds
-    LdtkParser<LdtkMapData> bindLdtkMapData(LdtkMapData.Parser parser);
+    JsonParser<LdtkMapData> bindLdtkMapData(LdtkMapData.Parser parser);
 
     @Binds
-    LdtkParser<LdtkNeighbourLevelData> bindLdtkNeighbourLevelData(LdtkNeighbourLevelData.Parser parser);
+    JsonParser<LdtkNeighbourLevelData> bindLdtkNeighbourLevelData(LdtkNeighbourLevelData.Parser parser);
 
     @Binds
-    LdtkParser<LdtkTileInstance> bindLdtkTileInstance(LdtkTileInstance.Parser parser);
+    JsonParser<LdtkTileInstance> bindLdtkTileInstance(LdtkTileInstance.Parser parser);
 
     @Binds
-    LdtkParser<LdtkTileRect> bindLdtkTileRect(LdtkTileRect.Parser parser);
+    JsonParser<LdtkTileRect> bindLdtkTileRect(LdtkTileRect.Parser parser);
 
     @Binds
-    LdtkParser<LdtkTilesetCustomData> bindLdtkTilesetCustomData(LdtkTilesetCustomData.Parser parser);
+    JsonParser<LdtkTilesetCustomData> bindLdtkTilesetCustomData(LdtkTilesetCustomData.Parser parser);
 
     @Binds
-    LdtkParser<LdtkTilesetDefinition> bindLdtkTilesetDefinition(LdtkTilesetDefinition.Parser parser);
+    JsonParser<LdtkTilesetDefinition> bindLdtkTilesetDefinition(LdtkTilesetDefinition.Parser parser);
 
     @Binds
-    LdtkParser<MultiAssociatedValue> bindMultiAssociatedValue(MultiAssociatedValue.Parser parser);
+    JsonParser<MultiAssociatedValue> bindMultiAssociatedValue(MultiAssociatedValue.Parser parser);
 }

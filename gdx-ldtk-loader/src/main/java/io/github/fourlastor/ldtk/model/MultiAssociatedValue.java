@@ -2,7 +2,7 @@ package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Null;
-import io.github.fourlastor.ldtk.LdtkParser;
+import io.github.fourlastor.json.JsonParser;
 import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
@@ -31,7 +31,7 @@ public class MultiAssociatedValue {
         this.content = content;
     }
 
-    public static class Parser extends LdtkParser<MultiAssociatedValue> {
+    public static class Parser extends JsonParser<MultiAssociatedValue> {
 
         @Inject
         public Parser() {}

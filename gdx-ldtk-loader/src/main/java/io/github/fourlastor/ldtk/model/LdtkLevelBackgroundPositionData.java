@@ -3,7 +3,7 @@ package io.github.fourlastor.ldtk.model;
 import com.badlogic.gdx.utils.FloatArray;
 import com.badlogic.gdx.utils.IntArray;
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.ldtk.LdtkParser;
+import io.github.fourlastor.json.JsonParser;
 import javax.inject.Inject;
 
 /**
@@ -35,7 +35,7 @@ public class LdtkLevelBackgroundPositionData {
         this.topLeftPx = topLeftPx;
     }
 
-    public static class Parser extends LdtkParser<LdtkLevelBackgroundPositionData> {
+    public static class Parser extends JsonParser<LdtkLevelBackgroundPositionData> {
 
         @Inject
         public Parser() {}

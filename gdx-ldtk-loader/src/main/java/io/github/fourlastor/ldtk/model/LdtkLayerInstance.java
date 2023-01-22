@@ -3,7 +3,7 @@ package io.github.fourlastor.ldtk.model;
 import com.badlogic.gdx.utils.IntArray;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Null;
-import io.github.fourlastor.ldtk.LdtkParser;
+import io.github.fourlastor.json.JsonParser;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -179,14 +179,14 @@ public class LdtkLayerInstance {
         this.iid = iid;
     }
 
-    public static class Parser extends LdtkParser<LdtkLayerInstance> {
+    public static class Parser extends JsonParser<LdtkLayerInstance> {
 
-        private final LdtkParser<LdtkTileInstance> tilesParser;
-        private final LdtkParser<LdtkEntityInstance> entityInstancesTilesParser;
+        private final JsonParser<LdtkTileInstance> tilesParser;
+        private final JsonParser<LdtkEntityInstance> entityInstancesTilesParser;
 
         @Inject
         public Parser(
-                LdtkParser<LdtkTileInstance> tilesParser, LdtkParser<LdtkEntityInstance> entityInstancesTilesParser) {
+                JsonParser<LdtkTileInstance> tilesParser, JsonParser<LdtkEntityInstance> entityInstancesTilesParser) {
             this.tilesParser = tilesParser;
             this.entityInstancesTilesParser = entityInstancesTilesParser;
         }
