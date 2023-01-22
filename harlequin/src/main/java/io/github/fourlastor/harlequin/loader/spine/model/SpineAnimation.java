@@ -1,7 +1,7 @@
 package io.github.fourlastor.harlequin.loader.spine.model;
 
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.harlequin.loader.spine.SpineParser;
+import io.github.fourlastor.json.JsonParser;
 import java.util.Map;
 import javax.inject.Inject;
 
@@ -14,12 +14,12 @@ public class SpineAnimation {
         this.slots = slots;
     }
 
-    public static class Parser extends SpineParser<SpineAnimation> {
+    public static class Parser extends JsonParser<SpineAnimation> {
 
-        private final SpineParser<SpineAnimationSlot> animatedSlotParser;
+        private final JsonParser<SpineAnimationSlot> animatedSlotParser;
 
         @Inject
-        public Parser(SpineParser<SpineAnimationSlot> animatedSlotParser) {
+        public Parser(JsonParser<SpineAnimationSlot> animatedSlotParser) {
             this.animatedSlotParser = animatedSlotParser;
         }
 

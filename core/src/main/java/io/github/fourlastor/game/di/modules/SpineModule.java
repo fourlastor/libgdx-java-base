@@ -2,7 +2,6 @@ package io.github.fourlastor.game.di.modules;
 
 import dagger.Binds;
 import dagger.Module;
-import io.github.fourlastor.harlequin.loader.spine.SpineParser;
 import io.github.fourlastor.harlequin.loader.spine.model.SpineAnimation;
 import io.github.fourlastor.harlequin.loader.spine.model.SpineAnimationSlot;
 import io.github.fourlastor.harlequin.loader.spine.model.SpineBone;
@@ -11,31 +10,32 @@ import io.github.fourlastor.harlequin.loader.spine.model.SpineSkeleton;
 import io.github.fourlastor.harlequin.loader.spine.model.SpineSkin;
 import io.github.fourlastor.harlequin.loader.spine.model.SpineSkins;
 import io.github.fourlastor.harlequin.loader.spine.model.SpineSlot;
+import io.github.fourlastor.json.JsonParser;
 
 @Module
 public interface SpineModule {
 
     @Binds
-    SpineParser<SpineAnimationSlot> bindSpineAnimatedSlot(SpineAnimationSlot.Parser parser);
+    JsonParser<SpineAnimationSlot> bindSpineAnimatedSlot(SpineAnimationSlot.Parser parser);
 
     @Binds
-    SpineParser<SpineAnimation> bindSpineAnimation(SpineAnimation.Parser parser);
+    JsonParser<SpineAnimation> bindSpineAnimation(SpineAnimation.Parser parser);
 
     @Binds
-    SpineParser<SpineBone> bindSpineBone(SpineBone.Parser parser);
+    JsonParser<SpineBone> bindSpineBone(SpineBone.Parser parser);
 
     @Binds
-    SpineParser<SpineEntity> bindSpineEntity(SpineEntity.Parser parser);
+    JsonParser<SpineEntity> bindSpineEntity(SpineEntity.Parser parser);
 
     @Binds
-    SpineParser<SpineSkeleton> bindSpineSkeleton(SpineSkeleton.Parser parser);
+    JsonParser<SpineSkeleton> bindSpineSkeleton(SpineSkeleton.Parser parser);
 
     @Binds
-    SpineParser<SpineSkin> bindSpineSkin(SpineSkin.Parser parser);
+    JsonParser<SpineSkin> bindSpineSkin(SpineSkin.Parser parser);
 
     @Binds
-    SpineParser<SpineSkins> bindSpineSkins(SpineSkins.Parser parser);
+    JsonParser<SpineSkins> bindSpineSkins(SpineSkins.Parser parser);
 
     @Binds
-    SpineParser<SpineSlot> bindSpineSlot(SpineSlot.Parser parser);
+    JsonParser<SpineSlot> bindSpineSlot(SpineSlot.Parser parser);
 }
