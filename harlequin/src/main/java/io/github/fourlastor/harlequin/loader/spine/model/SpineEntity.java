@@ -1,7 +1,7 @@
-package io.github.fourlastor.harlequin.spine.loader.model;
+package io.github.fourlastor.harlequin.loader.spine.model;
 
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.harlequin.spine.loader.SpineParser;
+import io.github.fourlastor.json.JsonParser;
 import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
@@ -35,22 +35,22 @@ public class SpineEntity {
         return "Animation{" + "bones=" + bones + ", slots=" + slots + ", skins=" + skins + '}';
     }
 
-    public static class Parser extends SpineParser<SpineEntity> {
+    public static class Parser extends JsonParser<SpineEntity> {
 
-        private final SpineParser<SpineSkeleton> skeletonParser;
-        private final SpineParser<SpineBone> boneParser;
+        private final JsonParser<SpineSkeleton> skeletonParser;
+        private final JsonParser<SpineBone> boneParser;
 
-        private final SpineParser<SpineSlot> slotParser;
-        private final SpineParser<SpineSkins> skinsParser;
-        private final SpineParser<SpineAnimation> animationParser;
+        private final JsonParser<SpineSlot> slotParser;
+        private final JsonParser<SpineSkins> skinsParser;
+        private final JsonParser<SpineAnimation> animationParser;
 
         @Inject
         public Parser(
-                SpineParser<SpineSkeleton> skeletonParser,
-                SpineParser<SpineBone> boneParser,
-                SpineParser<SpineSlot> slotParser,
-                SpineParser<SpineSkins> skinsParser,
-                SpineParser<SpineAnimation> animationParser) {
+                JsonParser<SpineSkeleton> skeletonParser,
+                JsonParser<SpineBone> boneParser,
+                JsonParser<SpineSlot> slotParser,
+                JsonParser<SpineSkins> skinsParser,
+                JsonParser<SpineAnimation> animationParser) {
             this.skeletonParser = skeletonParser;
             this.boneParser = boneParser;
             this.slotParser = slotParser;

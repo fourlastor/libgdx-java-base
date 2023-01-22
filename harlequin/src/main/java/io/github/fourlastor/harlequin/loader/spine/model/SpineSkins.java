@@ -1,7 +1,7 @@
-package io.github.fourlastor.harlequin.spine.loader.model;
+package io.github.fourlastor.harlequin.loader.spine.model;
 
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.harlequin.spine.loader.SpineParser;
+import io.github.fourlastor.json.JsonParser;
 import java.util.Map;
 import javax.inject.Inject;
 
@@ -19,12 +19,12 @@ public class SpineSkins {
         return "Skins{" + "name='" + name + '\'' + ", skins=" + skins + '}';
     }
 
-    public static class Parser extends SpineParser<SpineSkins> {
+    public static class Parser extends JsonParser<SpineSkins> {
 
-        private final SpineParser<SpineSkin> skinParser;
+        private final JsonParser<SpineSkin> skinParser;
 
         @Inject
-        public Parser(SpineParser<SpineSkin> skinParser) {
+        public Parser(JsonParser<SpineSkin> skinParser) {
             this.skinParser = skinParser;
         }
 

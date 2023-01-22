@@ -1,7 +1,7 @@
 package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.ldtk.LdtkParser;
+import io.github.fourlastor.json.JsonParser;
 import javax.inject.Inject;
 
 /**
@@ -24,7 +24,7 @@ public class LdtkNeighbourLevelData {
         this.levelIid = levelIid;
     }
 
-    public static class Parser extends LdtkParser<LdtkNeighbourLevelData> {
+    public static class Parser extends JsonParser<LdtkNeighbourLevelData> {
         @Inject
         public Parser() {}
 

@@ -2,7 +2,7 @@ package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Null;
-import io.github.fourlastor.ldtk.LdtkParser;
+import io.github.fourlastor.json.JsonParser;
 import javax.inject.Inject;
 
 public class LdtkFieldInstance {
@@ -48,12 +48,12 @@ public class LdtkFieldInstance {
         this.tile = tile;
     }
 
-    public static class Parser extends LdtkParser<LdtkFieldInstance> {
-        private final LdtkParser<MultiAssociatedValue> valueParser;
-        private final LdtkParser<LdtkTileRect> tileParser;
+    public static class Parser extends JsonParser<LdtkFieldInstance> {
+        private final JsonParser<MultiAssociatedValue> valueParser;
+        private final JsonParser<LdtkTileRect> tileParser;
 
         @Inject
-        public Parser(LdtkParser<MultiAssociatedValue> valueParser, LdtkParser<LdtkTileRect> tileParser) {
+        public Parser(JsonParser<MultiAssociatedValue> valueParser, JsonParser<LdtkTileRect> tileParser) {
             this.valueParser = valueParser;
             this.tileParser = tileParser;
         }

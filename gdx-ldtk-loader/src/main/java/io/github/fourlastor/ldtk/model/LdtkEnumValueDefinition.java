@@ -2,7 +2,7 @@ package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.IntArray;
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.ldtk.LdtkParser;
+import io.github.fourlastor.json.JsonParser;
 import javax.inject.Inject;
 
 public class LdtkEnumValueDefinition {
@@ -34,7 +34,7 @@ public class LdtkEnumValueDefinition {
         this.color = color;
     }
 
-    public static class Parser extends LdtkParser<LdtkEnumValueDefinition> {
+    public static class Parser extends JsonParser<LdtkEnumValueDefinition> {
         @Inject
         public Parser() {}
 

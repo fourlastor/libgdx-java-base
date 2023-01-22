@@ -1,7 +1,7 @@
 package io.github.fourlastor.ldtk.model;
 
 import com.badlogic.gdx.utils.JsonValue;
-import io.github.fourlastor.ldtk.LdtkParser;
+import io.github.fourlastor.json.JsonParser;
 import javax.inject.Inject;
 
 public class LdtkTileRect {
@@ -39,7 +39,7 @@ public class LdtkTileRect {
         this.y = y;
     }
 
-    public static class Parser extends LdtkParser<LdtkTileRect> {
+    public static class Parser extends JsonParser<LdtkTileRect> {
         @Inject
         public Parser() {}
 
