@@ -1,6 +1,7 @@
 package io.github.fourlastor.harlequin.loader.dragonbones.model;
 
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Null;
 import io.github.fourlastor.json.JsonParser;
 import java.util.List;
 import javax.inject.Inject;
@@ -9,12 +10,24 @@ public class DragonBonesAnimation {
 
     public final int duration;
     public final String name;
+    /** List of slots with keyframes in this animation. */
     public final List<DragonBonesAnimationSlot> slots;
 
     public DragonBonesAnimation(int duration, String name, List<DragonBonesAnimationSlot> slots) {
         this.duration = duration;
         this.name = name;
         this.slots = slots;
+    }
+
+    @Null
+    public DragonBonesAnimationSlot slot(String name) {
+        for (int i = 0; i < slots.size(); i++) {
+            DragonBonesAnimationSlot slot = slots.get(i);
+            if (name.equals(slot.name)) {
+                return slot;
+            }
+        }
+        return null;
     }
 
     public static class Parser extends JsonParser<DragonBonesAnimation> {
