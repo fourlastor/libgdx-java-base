@@ -1,0 +1,395 @@
+{
+    "frameRate": 60,
+    "name": "dancer",
+    "version": "5.5",
+    "compatibleVersion": "5.5",
+    "armature": [
+        {
+            "type": "Armature",
+            "frameRate": 60,
+            "name": "Armature",
+            "aabb": {
+                "x": -19.5,
+                "y": -26.5,
+                "width": 39,
+                "height": 53
+            },
+            "bone": [
+                {
+                    "name": "root"
+                },
+                {
+                    "parent": "root",
+                    "name": "child",
+                    "transform": {
+                        "x": 0,
+                        "y": -10
+                    }
+                }
+            ],
+            "slot": [
+                {
+                    "name": "sprite",
+                    "parent": "child"
+                }
+            ],
+            "skin": [
+                {
+                    "slot": [
+                        {
+                            "name": "sprite",
+                            "display": [
+                                {
+                                    "name": "balancing1"
+                                },
+                                {
+                                    "name": "balancing2"
+                                },
+                                {
+                                    "name": "balancing3"
+                                },
+                                {
+                                    "name": "balancing4"
+                                },
+                                {
+                                    "name": "balancing5"
+                                },
+                                {
+                                    "name": "balancing6"
+                                },
+                                {
+                                    "name": "balancing7"
+                                },
+                                {
+                                    "name": "balancing8"
+                                },
+                                {
+                                    "name": "hips1"
+                                },
+                                {
+                                    "name": "hips2"
+                                },
+                                {
+                                    "name": "hips3"
+                                },
+                                {
+                                    "name": "hips4"
+                                },
+                                {
+                                    "name": "hips5"
+                                },
+                                {
+                                    "name": "hips6"
+                                },
+                                {
+                                    "name": "hips7"
+                                },
+                                {
+                                    "name": "hips8"
+                                },
+                                {
+                                    "name": "skip1"
+                                },
+                                {
+                                    "name": "skip2"
+                                },
+                                {
+                                    "name": "skip3"
+                                },
+                                {
+                                    "name": "skip4"
+                                },
+                                {
+                                    "name": "skip5"
+                                },
+                                {
+                                    "name": "skip6"
+                                },
+                                {
+                                    "name": "skip7"
+                                },
+                                {
+                                    "name": "skip8"
+                                },
+                                {
+                                    "name": "slide1"
+                                },
+                                {
+                                    "name": "slide2"
+                                },
+                                {
+                                    "name": "slide3"
+                                },
+                                {
+                                    "name": "slide4"
+                                },
+                                {
+                                    "name": "slide5"
+                                },
+                                {
+                                    "name": "slide6"
+                                },
+                                {
+                                    "name": "slide7"
+                                },
+                                {
+                                    "name": "slide8"
+                                },
+                                {
+                                    "name": "snap1"
+                                },
+                                {
+                                    "name": "snap2"
+                                },
+                                {
+                                    "name": "snap3"
+                                },
+                                {
+                                    "name": "snap4"
+                                },
+                                {
+                                    "name": "snap5"
+                                },
+                                {
+                                    "name": "snap6"
+                                },
+                                {
+                                    "name": "snap7"
+                                },
+                                {
+                                    "name": "snap8"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "animation": [
+                {
+                    "duration": 64,
+                    "playTimes": 0,
+                    "name": "balancing",
+                    "slot": [
+                        {
+                            "name": "sprite",
+                            "displayFrame": [
+                                {
+                                    "duration": 8
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 1
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 2
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 3
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 4
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 5
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 6
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 7
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "duration": 64,
+                    "playTimes": 0,
+                    "name": "hips",
+                    "slot": [
+                        {
+                            "name": "sprite",
+                            "displayFrame": [
+                                {
+                                    "duration": 8,
+                                    "value": 8
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 9
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 10
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 11
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 12
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 13
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 14
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 15
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "duration": 64,
+                    "playTimes": 0,
+                    "name": "skip",
+                    "slot": [
+                        {
+                            "name": "sprite",
+                            "displayFrame": [
+                                {
+                                    "duration": 8,
+                                    "value": 16
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 17
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 18
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 19
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 20
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 21
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 22
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 23
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "duration": 64,
+                    "playTimes": 0,
+                    "name": "slide",
+                    "slot": [
+                        {
+                            "name": "sprite",
+                            "displayFrame": [
+                                {
+                                    "duration": 8,
+                                    "value": 24
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 25
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 26
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 27
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 28
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 29
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 30
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 31
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "duration": 64,
+                    "playTimes": 0,
+                    "name": "snap",
+                    "slot": [
+                        {
+                            "name": "sprite",
+                            "displayFrame": [
+                                {
+                                    "duration": 8,
+                                    "value": 32
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 33
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 34
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 35
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 36
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 37
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 38
+                                },
+                                {
+                                    "duration": 8,
+                                    "value": 39
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "defaultActions": [
+                {
+                    "gotoAndPlay": "balancing"
+                }
+            ]
+        }
+    ]
+}

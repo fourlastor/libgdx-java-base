@@ -23,7 +23,7 @@ public class DragonBonesArmatureSlot {
         @Override
         public DragonBonesArmatureSlot parse(JsonValue value) {
             return new DragonBonesArmatureSlot(
-                    value.getString("name"), value.getString("parent"), value.getInt("displayIndex"));
+                    value.getString("name"), value.getString("parent"), value.getInt("displayIndex", 0));
         }
     }
 }

@@ -7,7 +7,10 @@ import javax.inject.Inject;
 
 public class DragonBonesAnimationSlot {
 
+    /** Name of the armature slot. */
     public final String name;
+
+    /** List of keyframes for this slot. */
     public final List<DragonBonesDisplayFrame> displayFrames;
 
     public DragonBonesAnimationSlot(String name, List<DragonBonesDisplayFrame> displayFrames) {

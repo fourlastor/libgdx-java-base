@@ -9,6 +9,8 @@ public class DragonBonesEntity {
 
     public final int frameRate;
     public final String name;
+
+    /** The actual entity. It seems to have always length 1. */
     public final List<DragonBonesArmature> armatures;
 
     public DragonBonesEntity(int frameRate, String name, List<DragonBonesArmature> armatures) {
