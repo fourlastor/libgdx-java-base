@@ -6,8 +6,8 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import io.github.fourlastor.game.component.ActorComponent;
-import io.github.fourlastor.game.component.BodyComponent;
+import io.github.fourlastor.game.level.component.ActorComponent;
+import io.github.fourlastor.game.level.component.BodyComponent;
 import javax.inject.Inject;
 
 /**

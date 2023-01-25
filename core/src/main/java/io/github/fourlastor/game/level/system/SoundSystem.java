@@ -8,9 +8,9 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.math.Vector2;
-import io.github.fourlastor.game.component.BodyComponent;
-import io.github.fourlastor.game.component.PlayerComponent;
-import io.github.fourlastor.game.component.SoundComponent;
+import io.github.fourlastor.game.level.component.BodyComponent;
+import io.github.fourlastor.game.level.component.PlayerComponent;
+import io.github.fourlastor.game.level.component.SoundComponent;
 import javax.inject.Inject;
 
 public class SoundSystem extends IteratingSystem {

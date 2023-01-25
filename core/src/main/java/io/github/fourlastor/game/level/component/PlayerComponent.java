@@ -1,4 +1,4 @@
-package io.github.fourlastor.game.component;
+package io.github.fourlastor.game.level.component;
 
 import com.badlogic.ashley.core.Component;
 import io.github.fourlastor.game.level.input.InputStateMachine;

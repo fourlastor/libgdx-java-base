@@ -7,8 +7,8 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IntervalIteratingSystem;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.physics.box2d.Body;
-import io.github.fourlastor.game.component.BodyComponent;
-import io.github.fourlastor.game.component.PlayerComponent;
+import io.github.fourlastor.game.level.component.BodyComponent;
+import io.github.fourlastor.game.level.component.PlayerComponent;
 import javax.inject.Inject;
 
 public class GarbageCollectionSystem extends IntervalIteratingSystem {

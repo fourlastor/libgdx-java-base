@@ -7,7 +7,14 @@ import io.github.fourlastor.game.level.PlayerAnimationsFactory;
 import io.github.fourlastor.game.route.RouterModule;
 
 @ScreenScoped
-@Subcomponent(modules = {LevelModule.class, MapModule.class, PlayerAnimationsFactory.class, RouterModule.class})
+@Subcomponent(
+        modules = {
+            LevelModule.class,
+            MapModule.class,
+            PlayerAnimationsFactory.class,
+            RouterModule.class,
+            EcsModule.class
+        })
 public interface LevelComponent {
 
     @ScreenScoped

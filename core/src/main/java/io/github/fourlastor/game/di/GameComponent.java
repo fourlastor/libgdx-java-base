@@ -4,7 +4,6 @@ import dagger.Component;
 import io.github.fourlastor.game.GdxGame;
 import io.github.fourlastor.game.di.modules.AssetsModule;
 import io.github.fourlastor.game.di.modules.DragonBonesModule;
-import io.github.fourlastor.game.di.modules.EcsModule;
 import io.github.fourlastor.game.di.modules.GameModule;
 import io.github.fourlastor.game.di.modules.GdxModule;
 import io.github.fourlastor.game.di.modules.LdtkModule;
@@ -18,7 +17,6 @@ import javax.inject.Singleton;
             GameModule.class,
             AssetsModule.class,
             GdxModule.class,
-            EcsModule.class,
             ScreensModule.class,
             LdtkModule.class,
             SpineModule.class,
