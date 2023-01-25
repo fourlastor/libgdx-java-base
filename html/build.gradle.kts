@@ -102,6 +102,7 @@ java.sourceSets.main.configure {
     val externalSrc = listOf(
         ":core",
         ":harlequin",
+        ":gdx-auto-pool",
         ":gdx-json-parser",
         ":gdx-ldtk-loader",
         ":gdx-text-loader",
@@ -112,6 +113,7 @@ java.sourceSets.main.configure {
 dependencies {
     implementation(project(":core"))
     implementation(project(":harlequin"))
+    implementation(project(":gdx-auto-pool"))
     implementation(project(":gdx-json-parser"))
     implementation(project(":gdx-ldtk-loader"))
     implementation(project(":gdx-text-loader"))
