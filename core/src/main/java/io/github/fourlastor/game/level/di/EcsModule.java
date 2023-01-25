@@ -1,4 +1,4 @@
-package io.github.fourlastor.game.level;
+package io.github.fourlastor.game.level.di;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import dagger.Module;
