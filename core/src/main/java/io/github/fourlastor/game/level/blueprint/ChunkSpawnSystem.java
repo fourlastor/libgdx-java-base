@@ -6,7 +6,7 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.graphics.Camera;
-import io.github.fourlastor.game.component.ChunkRemovalComponent;
+import io.github.fourlastor.game.level.component.ChunkRemovalComponent;
 import java.util.List;
 import javax.inject.Inject;
 
