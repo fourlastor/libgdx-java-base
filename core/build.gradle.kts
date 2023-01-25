@@ -51,6 +51,7 @@ tasks.create("packTextures") {
 }
 
 dependencies {
+    implementation(project(":gdx-auto-pool"))
     implementation(project(":gdx-ldtk-loader"))
     implementation(project(":gdx-text-loader"))
     implementation(project(":harlequin"))
