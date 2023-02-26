@@ -28,8 +28,8 @@ spotless {
 val safeName = stringProperty("io.github.fourlastor.game.safe_name")
 val gameName = stringProperty("io.github.fourlastor.game.game_name")
 val gameVersion = stringProperty("io.github.fourlastor.game.version")
-val packageInputDir = "jpackage/in"
-val packageOutputDir = "jpackage/out"
+val packageInputDir = "packaging/in"
+val packageOutputDir = "packaging/out"
 val gameBuildDir = "$buildDir/game"
 val appDirName = "Game.AppDir"
 val appImageName = "Game"
@@ -144,7 +144,7 @@ val prepareAppImageFiles = tasks.register("prepareAppImageFiles") {
                 from(file("$jpackageBuildDir/desktop-linux-$arch")) {
                     into(appDirName)
                 }
-                from(rootProject.file("Game.AppDir.Template")) {
+                from(rootProject.file("$packageInputDir/AppDir.Template")) {
                     into(appDirName)
                 }
                 from(rootProject.file("$packageInputDir/icons/icon.png")) {
@@ -243,6 +243,7 @@ val packageMacX64 = tasks.register<Zip>("packageMac-x64") {
     archiveFileName.set("$safeName-mac-x64.zip")
     destinationDirectory.set(rootProject.file(packageOutputDir))
     dependsOn(buildMacAppBundle)
+    from(rootProject.file("$packageInputDir/macos"))
     from(file("$macAppDir/x64"))
     into("$safeName-v$gameVersion-mac-x64")
 }
@@ -252,6 +253,7 @@ val packageMacAarch64 = tasks.register<Zip>("packageMac-aarch64") {
     archiveFileName.set("$safeName-mac-aarch64.zip")
     destinationDirectory.set(rootProject.file(packageOutputDir))
     dependsOn(buildMacAppBundle)
+    from(rootProject.file("$packageInputDir/macos"))
     from(file("$macAppDir/aarch64"))
     into("$safeName-v$gameVersion-mac-aarch64")
 }

@@ -105,3 +105,6 @@ assets/images/included/packed
 
 ### WAR folder
 html/war
+
+### Packaging output
+packaging/out
