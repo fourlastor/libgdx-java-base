@@ -9,12 +9,14 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.JsonReader;
+import io.github.fourlastor.harlequin.animation.Animation;
 import io.github.fourlastor.harlequin.animation.AnimationNode;
 import io.github.fourlastor.harlequin.loader.dragonbones.model.DragonBonesEntity;
 import io.github.fourlastor.json.JsonParser;
+import java.util.Collections;
+import java.util.Map;
 
-public class DragonBonesLoader
-        extends AsynchronousAssetLoader<AnimationNode.Group, AssetLoaderParameters<AnimationNode.Group>> {
+public class DragonBonesLoader extends AsynchronousAssetLoader<AnimationNode.Group, DragonBonesLoader.Parameters> {
     private final JsonReader json;
     private final JsonParser<DragonBonesEntity> jsonParser;
 
@@ -31,34 +33,34 @@ public class DragonBonesLoader
     }
 
     @Override
-    public void loadAsync(
-            AssetManager manager,
-            String fileName,
-            FileHandle file,
-            AssetLoaderParameters<AnimationNode.Group> parameter) {
+    public void loadAsync(AssetManager manager, String fileName, FileHandle file, Parameters parameters) {
         data = jsonParser.parse(json.parse(file));
     }
 
     @Override
-    public AnimationNode.Group loadSync(
-            AssetManager manager,
-            String fileName,
-            FileHandle file,
-            AssetLoaderParameters<AnimationNode.Group> parameter) {
+    public AnimationNode.Group loadSync(AssetManager manager, String fileName, FileHandle file, Parameters parameters) {
         TextureAtlas atlas = manager.get(atlasPath, TextureAtlas.class);
         String texture = file.parent().child("texture").path();
         String base = texture.substring(basePath.length() + 1);
+        Map<String, Animation.PlayMode> playModes;
+        if (parameters == null) {
+            playModes = Collections.emptyMap();
+        } else {
+            playModes = parameters.playModes;
+        }
         try {
-            return new DragonBonesAnimationsParser(atlas, base).parse(data);
+            return new DragonBonesAnimationsParser(atlas, base, playModes).parse(data);
         } finally {
             data = null;
         }
     }
 
+    @SuppressWarnings({"rawtypes", "unchecked"}) // overridden method
     @Override
-    public Array<AssetDescriptor> getDependencies(
-            String fileName, FileHandle file, AssetLoaderParameters<AnimationNode.Group> parameter) {
-        return Array.with(new AssetDescriptor<>(atlasPath, TextureAtlas.class));
+    public Array<AssetDescriptor> getDependencies(String fileName, FileHandle file, Parameters parameters) {
+        Array<AssetDescriptor> descriptors = new Array<>();
+        descriptors.add(new AssetDescriptor(atlasPath, TextureAtlas.class));
+        return descriptors;
     }
 
     public static class Options {
@@ -68,6 +70,14 @@ public class DragonBonesLoader
         public Options(String atlasPath, String basePath) {
             this.atlasPath = atlasPath;
             this.basePath = basePath;
+        }
+    }
+
+    public static class Parameters extends AssetLoaderParameters<AnimationNode.Group> {
+        public final Map<String, Animation.PlayMode> playModes;
+
+        public Parameters(Map<String, Animation.PlayMode> playModes) {
+            this.playModes = playModes;
         }
     }
 }
