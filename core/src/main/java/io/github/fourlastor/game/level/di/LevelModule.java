@@ -12,6 +12,7 @@ import dagger.Module;
 import dagger.Provides;
 import io.github.fourlastor.game.di.ScreenScoped;
 import io.github.fourlastor.game.level.blueprint.ChunkSpawnSystem;
+import io.github.fourlastor.game.level.component.ActorComponent;
 import io.github.fourlastor.game.level.input.PlayerInputSystem;
 import io.github.fourlastor.game.level.physics.PhysicsDebugSystem;
 import io.github.fourlastor.game.level.physics.PhysicsSystem;
@@ -60,6 +61,12 @@ public class LevelModule {
         engine.addSystem(garbageCollectionSystem);
         //        engine.addSystem(physicsDebugSystem);
         return engine;
+    }
+
+    @Provides
+    @Layers
+    public Class<? extends Enum<?>> layersEnum() {
+        return ActorComponent.Layer.class;
     }
 
     @Provides

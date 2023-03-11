@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import io.github.fourlastor.game.level.component.ActorComponent;
 import io.github.fourlastor.game.level.component.AnimatedImageComponent;
+import io.github.fourlastor.game.level.di.Layers;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -21,16 +22,16 @@ public class StageSystem extends EntitySystem implements EntityListener {
             Family.one(AnimatedImageComponent.class, ActorComponent.class).get();
     private final Stage stage;
     private final ComponentMapper<ActorComponent> actors;
-    private final List<Group> layers;
+    private final List<Group> layerGroups;
 
     @Inject
-    public StageSystem(Stage stage, ComponentMapper<ActorComponent> actors) {
+    public StageSystem(Stage stage, ComponentMapper<ActorComponent> actors, @Layers Class<? extends Enum<?>> layers) {
         this.stage = stage;
         this.actors = actors;
-        int layersCount = ActorComponent.Layer.values().length;
-        layers = new ArrayList<>(layersCount);
+        int layersCount = layers.getEnumConstants().length;
+        this.layerGroups = new ArrayList<>(layersCount);
         for (int i = 0; i < layersCount; i++) {
-            layers.add(new Group());
+            this.layerGroups.add(new Group());
         }
     }
 
@@ -43,7 +44,7 @@ public class StageSystem extends EntitySystem implements EntityListener {
     @Override
     public void addedToEngine(Engine engine) {
         engine.addEntityListener(FAMILY, this);
-        for (Group layer : layers) {
+        for (Group layer : layerGroups) {
             stage.addActor(layer);
         }
     }
@@ -51,7 +52,7 @@ public class StageSystem extends EntitySystem implements EntityListener {
     @Override
     public void removedFromEngine(Engine engine) {
         engine.removeEntityListener(this);
-        for (Group layer : layers) {
+        for (Group layer : layerGroups) {
             layer.remove();
         }
     }
@@ -61,8 +62,8 @@ public class StageSystem extends EntitySystem implements EntityListener {
         if (actors.has(entity)) {
             ActorComponent actorComponent = actors.get(entity);
             Actor actor = actorComponent.actor;
-            ActorComponent.Layer layer = actorComponent.layer;
-            layers.get(layer.ordinal()).addActor(actor);
+            Enum<?> layer = actorComponent.layer;
+            layerGroups.get(layer.ordinal()).addActor(actor);
         }
     }
 
