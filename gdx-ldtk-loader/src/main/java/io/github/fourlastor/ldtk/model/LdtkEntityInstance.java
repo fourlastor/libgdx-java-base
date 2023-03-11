@@ -54,6 +54,31 @@ public class LdtkEntityInstance {
      */
     public final IntArray px;
 
+    public int x() {
+        return px.get(0);
+    }
+
+    public int y(int levelHeight, int gridSize) {
+        return (levelHeight - 1) * gridSize - px.get(1);
+    }
+
+    public float halfWidth() {
+        return width / 2f;
+    }
+
+    public float halfHeight() {
+        return height / 2f;
+    }
+
+    public final LdtkFieldInstance field(String fieldName) {
+        for (LdtkFieldInstance fieldInstance : fieldInstances) {
+            if (fieldInstance.identifier.equals(fieldName)) {
+                return fieldInstance;
+            }
+        }
+        throw new IndexOutOfBoundsException("Field " + fieldName + " missing");
+    }
+
     /**
      * Entity width in pixels. For non-resizable entities, it will be the same as Entity definition.
      */

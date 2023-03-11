@@ -42,10 +42,10 @@ public abstract class SpineSkin {
         @Override
         public SpineSkin parse(JsonValue value) {
             if ("boundingbox".equals(value.getString("type", null))) {
-                return new SpineSkin.BoundingBox(
+                return new BoundingBox(
                         value.getString("name"), value.getInt("vertexCount", 0), getFloatArray(value.get("vertices")));
             } else {
-                return new SpineSkin.Image(value.getString("name"));
+                return new Image(value.getString("name"));
             }
         }
     }

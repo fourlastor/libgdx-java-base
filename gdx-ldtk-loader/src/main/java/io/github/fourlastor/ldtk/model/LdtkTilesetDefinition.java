@@ -82,6 +82,15 @@ public class LdtkTilesetDefinition {
         this.customData = customData;
     }
 
+    public LdtkTilesetCustomData customData(int tileId) {
+        for (LdtkTilesetCustomData data : customData) {
+            if (data.tileId == tileId) {
+                return data;
+            }
+        }
+        throw new IndexOutOfBoundsException("No custom data for tileId " + tileId + " found");
+    }
+
     public static class Parser extends JsonParser<LdtkTilesetDefinition> {
 
         private final JsonParser<LdtkTilesetCustomData> customDataParser;

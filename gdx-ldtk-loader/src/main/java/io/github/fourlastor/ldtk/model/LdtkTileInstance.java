@@ -7,6 +7,9 @@ import javax.inject.Inject;
 
 public class LdtkTileInstance {
 
+    private static final int FLIP_X = 1;
+    private static final int FLIP_Y = 2;
+
     /**
      * "Flip bits", a 2-bits integer to represent the mirror transformations of the tile.<br/>
      * - Bit 0 = X flip<br/> - Bit 1 = Y flip<br/>
@@ -15,11 +18,27 @@ public class LdtkTileInstance {
      */
     public final int f;
 
+    public boolean flipX() {
+        return (f & FLIP_X) == FLIP_X;
+    }
+
+    public boolean flipY() {
+        return (f & FLIP_Y) == FLIP_Y;
+    }
+
     /**
      * Pixel coordinates of the tile in the **layer** (`[x,y]` format). Don't forget optional layer
      * offsets, if they exist!
      */
     public final IntArray px;
+
+    public int x() {
+        return px.get(0);
+    }
+
+    public int y(int levelHeight, int gridSize) {
+        return (levelHeight - 1) * gridSize - px.get(1);
+    }
 
     /**
      * Pixel coordinates of the tile in the **tileset** (`[x,y]` format)

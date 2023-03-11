@@ -22,6 +22,15 @@ public class LdtkDefinitions {
         this.tilesets = tilesets;
     }
 
+    public LdtkTilesetDefinition tileset(int uid) {
+        for (LdtkTilesetDefinition tileset : tilesets) {
+            if (uid == tileset.uid) {
+                return tileset;
+            }
+        }
+        throw new IndexOutOfBoundsException("No tileset with uid " + uid + "found");
+    }
+
     public static class Parser extends JsonParser<LdtkDefinitions> {
 
         private final JsonParser<LdtkEnumDefinition> enumsParser;
