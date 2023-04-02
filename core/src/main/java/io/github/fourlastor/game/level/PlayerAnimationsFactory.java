@@ -9,7 +9,7 @@ import dagger.Module;
 import dagger.Provides;
 import io.github.fourlastor.game.di.ScreenScoped;
 import io.github.fourlastor.harlequin.animation.Animation;
-import io.github.fourlastor.harlequin.animation.GdxAnimation;
+import io.github.fourlastor.harlequin.animation.FixedFrameAnimation;
 import javax.inject.Named;
 
 @Module
@@ -26,14 +26,14 @@ public class PlayerAnimationsFactory {
     @ScreenScoped
     @Named(ANIMATION_FISH)
     public Animation<Drawable> fish(TextureAtlas textureAtlas) {
-        return new GdxAnimation<>(0.1f, wrap(textureAtlas.findRegions(ANIMATION_FISH)), Animation.PlayMode.LOOP);
+        return new FixedFrameAnimation<>(0.1f, wrap(textureAtlas.findRegions(ANIMATION_FISH)), Animation.PlayMode.LOOP);
     }
 
     @Provides
     @ScreenScoped
     @Named(ANIMATION_STANDING)
     public Animation<Drawable> standing(TextureAtlas textureAtlas) {
-        return new GdxAnimation<>(
+        return new FixedFrameAnimation<>(
                 FRAME_DURATION, wrap(textureAtlas.findRegions(ANIMATION_STANDING)), Animation.PlayMode.LOOP);
     }
 
@@ -41,7 +41,7 @@ public class PlayerAnimationsFactory {
     @ScreenScoped
     @Named(ANIMATION_FALLING)
     public Animation<Drawable> falling(TextureAtlas textureAtlas) {
-        return new GdxAnimation<>(
+        return new FixedFrameAnimation<>(
                 FRAME_DURATION, wrap(textureAtlas.findRegions(ANIMATION_FALLING)), Animation.PlayMode.NORMAL);
     }
 
@@ -49,7 +49,7 @@ public class PlayerAnimationsFactory {
     @ScreenScoped
     @Named(ANIMATION_JUMPING)
     public Animation<Drawable> jumping(TextureAtlas textureAtlas) {
-        return new GdxAnimation<>(
+        return new FixedFrameAnimation<>(
                 FRAME_DURATION, wrap(textureAtlas.findRegions(ANIMATION_JUMPING)), Animation.PlayMode.NORMAL);
     }
 
@@ -57,7 +57,7 @@ public class PlayerAnimationsFactory {
     @ScreenScoped
     @Named(ANIMATION_CHARGE_JUMP)
     public Animation<Drawable> chargeJump(TextureAtlas textureAtlas) {
-        return new GdxAnimation<>(
+        return new FixedFrameAnimation<>(
                 FRAME_DURATION, wrap(textureAtlas.findRegions(ANIMATION_CHARGE_JUMP)), Animation.PlayMode.NORMAL);
     }
 

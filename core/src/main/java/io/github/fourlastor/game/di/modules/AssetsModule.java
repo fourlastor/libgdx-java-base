@@ -14,7 +14,6 @@ import io.github.fourlastor.ldtk.LdtkLoader;
 import io.github.fourlastor.ldtk.model.LdtkMapData;
 import io.github.fourlastor.text.Text;
 import io.github.fourlastor.text.TextLoader;
-import java.util.Collections;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
@@ -57,8 +56,7 @@ public class AssetsModule {
         assetManager.load(
                 PATH_DRAGON_BONES_JSON,
                 AnimationNode.Group.class,
-                new DragonBonesLoader.Parameters(
-                        Collections.emptyMap(), PATH_TEXTURE_ATLAS, "animations/dancer/texture"));
+                new DragonBonesLoader.Parameters(PATH_TEXTURE_ATLAS, "animations/dancer/texture"));
         assetManager.load(PATH_DEFAULT_SHADER, Text.class);
         assetManager.load(PATH_WAVE_SHADER, Text.class);
         assetManager.finishLoading();
