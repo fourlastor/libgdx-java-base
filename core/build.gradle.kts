@@ -54,7 +54,7 @@ dependencies {
     implementation(project(":gdx-auto-pool"))
     implementation(project(":gdx-ldtk-loader"))
     implementation(project(":gdx-text-loader"))
-    implementation(project(":harlequin"))
+    implementation(libs.harlequin)
     implementation(libs.gdx.core)
     implementation(libs.gdx.ai)
     implementation(libs.gdx.box2d.core)
