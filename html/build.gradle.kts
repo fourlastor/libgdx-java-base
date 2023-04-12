@@ -130,6 +130,7 @@ dependencies {
     sources(libs.textratypist)
     sources(libs.regexodus)
     sources(libs.harlequin)
+    sources(libs.perceptual)
 }
 
 fun DependencyHandlerScope.sources(

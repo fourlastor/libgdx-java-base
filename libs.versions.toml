@@ -13,6 +13,7 @@ gwt-plugin="1.1.18"
 harlequin="1.0.0"
 shadow = "7.1.2"
 spotless = "6.10.0"
+perceptual = "1.0.0"
 regexodus = "0.1.13"
 textratypist = "0.7.2"
 [libraries]
@@ -33,6 +34,7 @@ gdx-controllers-gwt = { module = "com.badlogicgames.gdx-controllers:gdx-controll
 gdx-backend-lwjgl3 = { module = "com.badlogicgames.gdx:gdx-backend-lwjgl3", version.ref = "gdx" }
 gdx-backend-gwt = { module = "com.badlogicgames.gdx:gdx-backend-gwt", version.ref = "gdx" }
 harlequin = { module = "io.github.fourlastor.gdx:harlequin", version.ref = "harlequin" }
+perceptual = { module = "io.github.fourlastor.gdx:perceptual", version.ref = "perceptual" }
 regexodus = { module = "com.github.tommyettinger:regexodus", version.ref = "regexodus" }
 textratypist = { module = "com.github.tommyettinger:textratypist", version.ref = "textratypist" }
 [plugins]

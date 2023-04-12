@@ -55,6 +55,7 @@ dependencies {
     implementation(project(":gdx-ldtk-loader"))
     implementation(project(":gdx-text-loader"))
     implementation(libs.harlequin)
+    implementation(libs.perceptual)
     implementation(libs.gdx.core)
     implementation(libs.gdx.ai)
     implementation(libs.gdx.box2d.core)
