@@ -39,7 +39,7 @@ spotless {
 
 tasks.create("packTextures") {
     val inputDir = "$rootDir/assets/images/included"
-    val outputDir = "$rootDir/assets/images/included/packed"
+    val outputDir = "$rootDir/assets/images/packed"
     inputs.dir(inputDir)
     outputs.dir(outputDir)
     doLast {
