@@ -19,10 +19,6 @@ sourceSets.main.configure {
     resources.srcDir(assetsDir)
 }
 
-tasks.compileJava.configure {
-    dependsOn(tasks.named("packTextures"))
-    options.encoding = "UTF-8"
-}
 
 val gwtCompatPath = "io/github/fourlastor/gwtCompat"
 idea.module { excludeDirs.add(file("src/main/java/$gwtCompatPath")) }
@@ -37,7 +33,7 @@ spotless {
     }
 }
 
-tasks.create("packTextures") {
+val packTextures = tasks.register("packTextures") {
     val inputDir = "$rootDir/assets/images/included"
     val outputDir = "$rootDir/assets/images/packed"
     inputs.dir(inputDir)
@@ -48,6 +44,11 @@ tasks.create("packTextures") {
             combineSubdirectories = true
         }, inputDir, outputDir, "images.pack")
     }
+}
+
+tasks.compileJava.configure {
+    dependsOn(packTextures)
+    options.encoding = "UTF-8"
 }
 
 dependencies {
