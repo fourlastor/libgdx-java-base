@@ -33,6 +33,7 @@ gdx-controllers-desktop = { module = "com.badlogicgames.gdx-controllers:gdx-cont
 gdx-controllers-gwt = { module = "com.badlogicgames.gdx-controllers:gdx-controllers-gwt", version.ref = "controllers" }
 gdx-backend-lwjgl3 = { module = "com.badlogicgames.gdx:gdx-backend-lwjgl3", version.ref = "gdx" }
 gdx-backend-gwt = { module = "com.badlogicgames.gdx:gdx-backend-gwt", version.ref = "gdx" }
+gdx-tools = { module = "com.badlogicgames.gdx:gdx-tools", version.ref = "gdx" }
 harlequin = { module = "io.github.fourlastor.gdx:harlequin", version.ref = "harlequin" }
 perceptual = { module = "io.github.fourlastor.gdx:perceptual", version.ref = "perceptual" }
 regexodus = { module = "com.github.tommyettinger:regexodus", version.ref = "regexodus" }
