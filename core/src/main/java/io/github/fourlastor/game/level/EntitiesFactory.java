@@ -26,10 +26,10 @@ import io.github.fourlastor.game.level.component.ChunkRemovalComponent;
 import io.github.fourlastor.game.level.component.MovingComponent;
 import io.github.fourlastor.game.level.component.PlayerRequestComponent;
 import io.github.fourlastor.game.level.component.SoundComponent;
-import io.github.fourlastor.game.ui.ParallaxImage;
 import io.github.fourlastor.harlequin.animation.Animation;
 import io.github.fourlastor.harlequin.component.ActorComponent;
 import io.github.fourlastor.harlequin.ui.AnimatedImage;
+import io.github.fourlastor.harlequin.ui.ParallaxImage;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -131,7 +131,7 @@ public class EntitiesFactory {
     public Entity parallaxBackground(float factor, Layer layer, int backgroundIndex) {
         Entity entity = new Entity();
         TextureRegion region = textureAtlas.findRegion("background/background_layer", backgroundIndex);
-        ParallaxImage image = new ParallaxImage(factor, region);
+        ParallaxImage image = new ParallaxImage(region, factor);
         image.setScale(SCALE_XY);
         entity.add(new ActorComponent(image, layer));
         return entity;
