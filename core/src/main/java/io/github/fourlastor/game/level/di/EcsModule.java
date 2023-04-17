@@ -4,7 +4,6 @@ import com.badlogic.ashley.core.ComponentMapper;
 import dagger.Module;
 import dagger.Provides;
 import io.github.fourlastor.game.di.ScreenScoped;
-import io.github.fourlastor.game.level.component.ActorComponent;
 import io.github.fourlastor.game.level.component.AnimatedImageComponent;
 import io.github.fourlastor.game.level.component.BodyBuilderComponent;
 import io.github.fourlastor.game.level.component.BodyComponent;
@@ -12,6 +11,7 @@ import io.github.fourlastor.game.level.component.ChunkRemovalComponent;
 import io.github.fourlastor.game.level.component.MovingComponent;
 import io.github.fourlastor.game.level.component.PlayerComponent;
 import io.github.fourlastor.game.level.component.SoundComponent;
+import io.github.fourlastor.harlequin.component.ActorComponent;
 
 @Module
 public class EcsModule {

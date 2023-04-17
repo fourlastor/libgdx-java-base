@@ -129,7 +129,8 @@ dependencies {
     sources(libs.ashley)
     sources(libs.textratypist)
     sources(libs.regexodus)
-    sources(libs.harlequin)
+    sources(libs.harlequin.core)
+    sources(libs.harlequin.ashley)
     sources(libs.perceptual)
 }
 

@@ -20,7 +20,6 @@ import io.github.fourlastor.game.di.ScreenScoped;
 import io.github.fourlastor.game.level.blueprint.definitions.MovingPlatform;
 import io.github.fourlastor.game.level.blueprint.definitions.Platform;
 import io.github.fourlastor.game.level.blueprint.definitions.SawBlade;
-import io.github.fourlastor.game.level.component.ActorComponent;
 import io.github.fourlastor.game.level.component.AnimatedImageComponent;
 import io.github.fourlastor.game.level.component.BodyBuilderComponent;
 import io.github.fourlastor.game.level.component.ChunkRemovalComponent;
@@ -29,6 +28,7 @@ import io.github.fourlastor.game.level.component.PlayerRequestComponent;
 import io.github.fourlastor.game.level.component.SoundComponent;
 import io.github.fourlastor.game.ui.ParallaxImage;
 import io.github.fourlastor.harlequin.animation.Animation;
+import io.github.fourlastor.harlequin.component.ActorComponent;
 import io.github.fourlastor.harlequin.ui.AnimatedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -83,7 +83,7 @@ public class EntitiesFactory {
         image.setPosition(-0.5f, -0.5f);
         Group group = new Group();
         group.addActor(image);
-        entity.add(new ActorComponent(group, ActorComponent.Layer.CHARACTER));
+        entity.add(new ActorComponent(group, Layer.CHARACTER));
         entity.add(new PlayerRequestComponent());
         return entity;
     }
@@ -111,7 +111,7 @@ public class EntitiesFactory {
     private ActorComponent platformActor(Platform.Type type, Platform.Width width) {
         Image image = new Image(textureAtlas.findRegion("platforms/platform_" + type.tileName + "_w" + width.width));
         image.setScale(SCALE_XY);
-        return new ActorComponent(image, ActorComponent.Layer.PLATFORM);
+        return new ActorComponent(image, Layer.PLATFORM);
     }
 
     private BodyBuilderComponent platformBuilder(Vector2 position, Platform.Width width) {
@@ -128,7 +128,7 @@ public class EntitiesFactory {
         });
     }
 
-    public Entity parallaxBackground(float factor, ActorComponent.Layer layer, int backgroundIndex) {
+    public Entity parallaxBackground(float factor, Layer layer, int backgroundIndex) {
         Entity entity = new Entity();
         TextureRegion region = textureAtlas.findRegion("background/background_layer", backgroundIndex);
         ParallaxImage image = new ParallaxImage(factor, region);
@@ -167,7 +167,7 @@ public class EntitiesFactory {
         Group group = new Group();
         group.addActor(image);
         group.addAction(Actions.forever(rotate));
-        entity.add(new ActorComponent(group, ActorComponent.Layer.ENEMIES));
+        entity.add(new ActorComponent(group, Layer.ENEMIES));
         entity.add(new SoundComponent(sawBladeSound));
         List<Vector2> path = new ArrayList<>(sawBlade.path.size() + 1);
         path.add(initialPosition);
@@ -184,7 +184,7 @@ public class EntitiesFactory {
         AnimatedImage image = new AnimatedImage(fishAnimation);
         image.setScale(CHARACTER_SCALE_XY);
         entity.add(new AnimatedImageComponent(image));
-        entity.add(new ActorComponent(image, ActorComponent.Layer.ENEMIES));
+        entity.add(new ActorComponent(image, Layer.ENEMIES));
         entity.add(new BodyBuilderComponent(world -> {
             BodyDef bodyDef = new BodyDef();
             bodyDef.type = BodyDef.BodyType.DynamicBody;
