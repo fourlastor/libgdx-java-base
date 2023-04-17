@@ -7,10 +7,7 @@ import io.github.fourlastor.game.di.ScreenScoped;
 import io.github.fourlastor.game.level.component.AnimatedImageComponent;
 import io.github.fourlastor.game.level.component.BodyBuilderComponent;
 import io.github.fourlastor.game.level.component.BodyComponent;
-import io.github.fourlastor.game.level.component.ChunkRemovalComponent;
-import io.github.fourlastor.game.level.component.MovingComponent;
 import io.github.fourlastor.game.level.component.PlayerComponent;
-import io.github.fourlastor.game.level.component.SoundComponent;
 import io.github.fourlastor.harlequin.component.ActorComponent;
 
 @Module
@@ -44,23 +41,5 @@ public class EcsModule {
     @ScreenScoped
     public ComponentMapper<PlayerComponent> playerComponent() {
         return ComponentMapper.getFor(PlayerComponent.class);
-    }
-
-    @Provides
-    @ScreenScoped
-    public ComponentMapper<ChunkRemovalComponent> chunkRemovalComponent() {
-        return ComponentMapper.getFor(ChunkRemovalComponent.class);
-    }
-
-    @Provides
-    @ScreenScoped
-    public ComponentMapper<MovingComponent> movingComponent() {
-        return ComponentMapper.getFor(MovingComponent.class);
-    }
-
-    @Provides
-    @ScreenScoped
-    public ComponentMapper<SoundComponent> soundComponent() {
-        return ComponentMapper.getFor(SoundComponent.class);
     }
 }
