@@ -14,50 +14,6 @@ public class InputStateMachine extends DefaultStateMachine<Entity, InputState> {
         super(entity, initialState);
     }
 
-    public boolean keyDown(Entity entity, int keycode) {
-        boolean result = false;
-        if (currentState != null) {
-            result = currentState.keyDown(entity, keycode);
-        }
-        if (globalState != null && !result) {
-            result = globalState.keyDown(entity, keycode);
-        }
-        return result;
-    }
-
-    public boolean keyUp(Entity entity, int keycode) {
-        boolean result = false;
-        if (currentState != null) {
-            result = currentState.keyUp(entity, keycode);
-        }
-        if (globalState != null && !result) {
-            result = globalState.keyUp(entity, keycode);
-        }
-        return result;
-    }
-
-    public boolean touchDown(Entity entity, int screenX, int screenY, int pointer, int button) {
-        boolean result = false;
-        if (currentState != null) {
-            result = currentState.touchDown(entity, screenX, screenY, pointer, button);
-        }
-        if (globalState != null && !result) {
-            result = globalState.touchDown(entity, screenX, screenY, pointer, button);
-        }
-        return result;
-    }
-
-    public boolean touchUp(Entity entity, int screenX, int screenY, int pointer, int button) {
-        boolean result = false;
-        if (currentState != null) {
-            result = currentState.touchUp(entity, screenX, screenY, pointer, button);
-        }
-        if (globalState != null && !result) {
-            result = globalState.touchUp(entity, screenX, screenY, pointer, button);
-        }
-        return result;
-    }
-
     @AssistedFactory
     public interface Factory {
         InputStateMachine create(Entity entity, InputState initialState);
