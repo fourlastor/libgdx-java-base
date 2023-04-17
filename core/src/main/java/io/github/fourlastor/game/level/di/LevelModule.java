@@ -1,5 +1,6 @@
 package io.github.fourlastor.game.level.di;
 
+import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.ai.msg.MessageDispatcher;
 import com.badlogic.gdx.graphics.Camera;
@@ -11,8 +12,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import dagger.Module;
 import dagger.Provides;
 import io.github.fourlastor.game.di.ScreenScoped;
+import io.github.fourlastor.game.level.Layer;
 import io.github.fourlastor.game.level.blueprint.ChunkSpawnSystem;
-import io.github.fourlastor.game.level.component.ActorComponent;
 import io.github.fourlastor.game.level.input.PlayerInputSystem;
 import io.github.fourlastor.game.level.physics.PhysicsDebugSystem;
 import io.github.fourlastor.game.level.physics.PhysicsSystem;
@@ -24,7 +25,8 @@ import io.github.fourlastor.game.level.system.GameOverSystem;
 import io.github.fourlastor.game.level.system.GarbageCollectionSystem;
 import io.github.fourlastor.game.level.system.MovingSystem;
 import io.github.fourlastor.game.level.system.SoundSystem;
-import io.github.fourlastor.game.level.system.StageSystem;
+import io.github.fourlastor.harlequin.component.ActorComponent;
+import io.github.fourlastor.harlequin.system.StageSystem;
 
 @Module
 public class LevelModule {
@@ -64,9 +66,15 @@ public class LevelModule {
     }
 
     @Provides
+    public StageSystem stageSystem(
+            Stage stage, @Layers Class<? extends Enum<?>> layers, ComponentMapper<ActorComponent> actors) {
+        return new StageSystem(stage, layers, actors);
+    }
+
+    @Provides
     @Layers
     public Class<? extends Enum<?>> layersEnum() {
-        return ActorComponent.Layer.class;
+        return Layer.class;
     }
 
     @Provides
