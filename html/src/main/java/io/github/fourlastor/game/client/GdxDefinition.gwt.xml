@@ -12,7 +12,6 @@
 
 	<inherits name="io.github.fourlastor.GdxGame" />
 	<inherits name="io.github.fourlastor.LdtkLoader" />
-	<inherits name="io.github.fourlastor.TextLoader" />
 	<inherits name="io.github.fourlastor.Harlequin" />
 	<inherits name="io.github.fourlastor.JsonParser" />
 	<inherits name="io.github.fourlastor.AutoPool" />
