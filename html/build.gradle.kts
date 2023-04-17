@@ -104,7 +104,6 @@ java.sourceSets.main.configure {
         ":gdx-auto-pool",
         ":gdx-json-parser",
         ":gdx-ldtk-loader",
-        ":gdx-text-loader",
     ).map { project(it).sourceSets.main.get().allJava.srcDirs }
     compileClasspath += files(externalSrc)
 }
@@ -114,7 +113,6 @@ dependencies {
     implementation(project(":gdx-auto-pool"))
     implementation(project(":gdx-json-parser"))
     implementation(project(":gdx-ldtk-loader"))
-    implementation(project(":gdx-text-loader"))
     implementation(libs.java.inject)
     implementation(libs.gdx.backend.gwt)
     sources(libs.gdx.backend.gwt)
