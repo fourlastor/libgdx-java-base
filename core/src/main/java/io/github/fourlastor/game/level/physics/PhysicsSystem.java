@@ -43,7 +43,7 @@ public class PhysicsSystem extends IntervalSystem {
 
     @Override
     protected void updateInterval() {
-        world.step(STEP, 8, 3);
+        world.step(STEP, 6, 2);
     }
 
     @Override
