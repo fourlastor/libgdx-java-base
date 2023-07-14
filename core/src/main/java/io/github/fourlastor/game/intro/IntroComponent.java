@@ -1,11 +1,12 @@
 package io.github.fourlastor.game.intro;
 
+import dagger.BindsInstance;
 import dagger.Subcomponent;
 import io.github.fourlastor.game.di.ScreenScoped;
-import io.github.fourlastor.game.route.RouterModule;
+import io.github.fourlastor.game.route.Router;
 
 @ScreenScoped
-@Subcomponent(modules = RouterModule.class)
+@Subcomponent
 public interface IntroComponent {
 
     @ScreenScoped
@@ -14,7 +15,7 @@ public interface IntroComponent {
     @Subcomponent.Builder
     interface Builder {
 
-        Builder router(RouterModule routerModule);
+        Builder router(@BindsInstance Router router);
 
         IntroComponent build();
     }
