@@ -5,7 +5,6 @@
 plugins {
     java
     application
-    alias(libs.plugins.download)
     alias(libs.plugins.spotless)
     alias(libs.plugins.shadow)
 }
