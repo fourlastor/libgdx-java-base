@@ -2,7 +2,7 @@
 ashley = "1.7.4"
 beryx-runtime = "1.13.0"
 controllers = "2.2.1"
-dagger = "2.44"
+dagger = "2.47"
 download-plugin = "5.3.0"
 javax = "1"
 gdx = "1.11.0"
