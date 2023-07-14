@@ -10,17 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
       - name: Build
-        uses: ./.github/actions/gradle-build
+        uses: gradle/gradle-build-action@v2
         with:
           arguments: assemble
   check-format:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
       - name: Check code formatting
-        uses: ./.github/actions/gradle-build
+        uses: gradle/gradle-build-action@v2
         with:
           arguments: spotlessCheck
