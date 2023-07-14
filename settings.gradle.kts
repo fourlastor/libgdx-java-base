@@ -15,5 +15,5 @@ include(":gdx-json-parser")
 include(":gdx-ldtk-loader")
 
 dependencyResolutionManagement {
-    versionCatalogs { create("libs") { from(files("libs.versions.toml")) } }
+    versionCatalogs { create("libs") }
 }
