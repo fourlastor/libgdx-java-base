@@ -1,0 +1,6 @@
+#!/bin/sh
+SELF=$(readlink -f "$0")
+HERE=${SELF%/*}
+export PATH="$HERE/bin:$PATH"
+export ALSOFT_DRIVERS=pulse
+exec "desktop" "$@"
