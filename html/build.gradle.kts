@@ -22,9 +22,9 @@ tasks.named("clean", Delete::class.java) {
 }
 
 gwt {
-    gwtVersion="2.8.2" // Should match the gwt version used for building the gwt backend
-    maxHeapSize="1G" // Default 256m is not enough for gwt compiler. GWT is HUNGRY
-    minHeapSize="1G"
+    gwtVersion = libs.versions.gwt.framework.get()
+    maxHeapSize = "1G"
+    minHeapSize = "1G"
 
     src = files(file("src/main/java")) // Needs to be in front of "modules" below.
     src += files(File(project(":core").projectDir, "build/generated/sources/annotationProcessor/java/main"))
@@ -71,7 +71,7 @@ tasks.create("dist") {
     doLast {
         copy {
             from("$buildDir/gwt/out") {
-                exclude( "**/*.symbolMap") // Not used by a dist, and these can be large.
+                exclude("**/*.symbolMap") // Not used by a dist, and these can be large.
             }
             into(distDir)
         }
