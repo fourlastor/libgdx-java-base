@@ -8,16 +8,19 @@ import io.github.fourlastor.game.di.GameComponent;
 import io.github.fourlastor.game.intro.IntroComponent;
 import io.github.fourlastor.game.level.di.LevelComponent;
 import io.github.fourlastor.game.route.Router;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 public class GdxGame extends Game implements Router {
 
     private final InputMultiplexer multiplexer;
 
     private final LevelComponent.Builder levelScreenFactory;
     private final IntroComponent.Builder introScreenFactory;
-
     private Screen pendingScreen = null;
 
+    @Inject
     public GdxGame(
             InputMultiplexer multiplexer,
             LevelComponent.Builder levelScreenFactory,
