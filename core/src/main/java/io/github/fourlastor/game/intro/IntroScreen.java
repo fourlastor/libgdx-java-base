@@ -17,7 +17,7 @@ import javax.inject.Inject;
 
 public class IntroScreen extends ScreenAdapter {
 
-    public static Color CLEAR_COLOR = new Color(0xffccccff);
+    public static Color CLEAR_COLOR = new Color(0x333333ff);
 
     private final InputMultiplexer inputMultiplexer;
     private final Stage stage;
