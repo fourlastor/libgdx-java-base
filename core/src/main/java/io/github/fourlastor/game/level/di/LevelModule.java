@@ -52,8 +52,8 @@ public class LevelModule {
 
     @Provides
     public StageSystem stageSystem(
-            Stage stage, @Layers Class<? extends Enum<?>> layers, ComponentMapper<ActorComponent> actors) {
-        return new StageSystem(stage, layers, actors);
+            Stage stage, @Layers Class<? extends Enum<?>> layers) {
+        return new StageSystem(stage, layers);
     }
 
     @Provides

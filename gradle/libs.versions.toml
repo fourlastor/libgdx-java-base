@@ -15,6 +15,7 @@ spotless = "6.10.0"
 perceptual = "1.0.0"
 regexodus = "0.1.13"
 textratypist = "0.7.2"
+jdkgdxds = "1.4.0"
 [libraries]
 ashley = { module = "com.badlogicgames.ashley:ashley", version.ref = "ashley" }
 dagger-core = { module = "com.google.dagger:dagger", version.ref = "dagger"}
@@ -38,6 +39,7 @@ harlequin-ashley = { module = "io.github.fourlastor.gdx:harlequin-ashley", versi
 perceptual = { module = "io.github.fourlastor.gdx:perceptual", version.ref = "perceptual" }
 regexodus = { module = "com.github.tommyettinger:regexodus", version.ref = "regexodus" }
 textratypist = { module = "com.github.tommyettinger:textratypist", version.ref = "textratypist" }
+jdkgdxgs = { module = "com.github.tommyettinger:jdkgdxds", version.ref = "jdkgdxds" }
 [plugins]
 gretty = { id = "org.gretty", version.ref = "gretty" }
 gwt = { id = "org.docstr.gwt", version.ref = "gwt-plugin" }

@@ -115,23 +115,29 @@ dependencies {
     implementation(project(":gdx-ldtk-loader"))
     implementation(libs.java.inject)
     implementation(libs.gdx.backend.gwt)
-    sources(libs.gdx.backend.gwt)
-    sources(libs.gdx.core)
-    sources(libs.gdx.ai)
-    sources(libs.gdx.box2d.core)
+    implementation(sources(libs.gdx.backend.gwt))
+    implementation(sources(libs.gdx.core))
+    implementation(sources(libs.gdx.ai))
+    implementation(sources(libs.gdx.box2d.core))
     implementation(libs.gdx.box2d.gwt)
-    sources(libs.gdx.box2d.gwt)
-    sources(libs.gdx.controllers.core)
+    implementation(sources(libs.gdx.box2d.gwt))
+    implementation(sources(libs.gdx.controllers.core))
     implementation(libs.gdx.controllers.gwt)
-    sources(libs.gdx.controllers.gwt)
-    sources(libs.ashley)
-    sources(libs.textratypist)
-    sources(libs.regexodus)
-    sources(libs.harlequin.core)
-    sources(libs.harlequin.ashley)
-    sources(libs.perceptual)
+    implementation(sources(libs.gdx.controllers.gwt))
+    implementation(sources(libs.ashley))
+    implementation(sources(libs.textratypist))
+    implementation(sources(libs.regexodus))
+    gwt(libs.harlequin.core) {
+        attributes { attribute(DocsType.DOCS_TYPE_ATTRIBUTE, objects.named(DocsType.SOURCES)) }
+    }
+    gwt(libs.harlequin.ashley) {
+        attributes { attribute(DocsType.DOCS_TYPE_ATTRIBUTE, objects.named(DocsType.SOURCES)) }
+    }
+//    gwt(libs.harlequin.core)
+//    gwt(libs.harlequin.ashley)
+    implementation(sources(libs.perceptual))
 }
 
 fun DependencyHandlerScope.sources(
     provider: Provider<MinimalExternalModuleDependency>,
-) = implementation(variantOf(provider) { classifier("sources") })
+) = variantOf(provider) { classifier("sources") }
