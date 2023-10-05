@@ -1,5 +1,5 @@
 import org.akhikhl.gretty.AppBeforeIntegrationTestTask
-import org.wisepersist.gradle.plugins.gwt.GwtSuperDev
+import org.docstr.gradle.plugins.gwt.GwtSuperDev
 
 @Suppress(
     // known false positive: https://youtrack.jetbrains.com/issue/KTIJ-19369
