@@ -8,7 +8,7 @@ gdx = "1.12.0"
 gdxAi = "1.8.2"
 gretty="4.0.3"
 gwt-framework="2.8.2"
-gwt-plugin="1.1.18"
+gwt-plugin="1.1.29"
 harlequin="1.1.0"
 shadow = "7.1.2"
 spotless = "6.10.0"
@@ -40,6 +40,6 @@ regexodus = { module = "com.github.tommyettinger:regexodus", version.ref = "rege
 textratypist = { module = "com.github.tommyettinger:textratypist", version.ref = "textratypist" }
 [plugins]
 gretty = { id = "org.gretty", version.ref = "gretty" }
-gwt = { id = "org.wisepersist.gwt", version.ref = "gwt-plugin" }
+gwt = { id = "org.docstr.gwt", version.ref = "gwt-plugin" }
 shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
