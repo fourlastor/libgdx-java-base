@@ -46,9 +46,13 @@ val packTextures = tasks.register("packTextures") {
     }
 }
 
-tasks.compileJava.configure {
-    dependsOn(packTextures)
-    options.encoding = "UTF-8"
+tasks {
+    processResources {
+        dependsOn(packTextures)
+    }
+    compileJava {
+        options.encoding = "UTF-8"
+    }
 }
 
 dependencies {
