@@ -6,13 +6,17 @@
 	<inherits name="com.badlogic.gdx.controllers" />
 	<inherits name="com.badlogic.gdx.controllers.controllers-gwt" />
 	<inherits name="com.badlogic.gdx.ai" />
-	<inherits name="regexodus" />
-	<inherits name="textratypist" />
 	<inherits name="com.badlogic.ashley_gwt" />
+	<inherits name="regexodus.regexodus" />
+	<inherits name="com.github.tommyettinger.textratypist" />
+	<inherits name="com.github.tommyettinger.funderby" />
+	<inherits name="com.github.tommyettinger.digital" />
+	<inherits name="com.github.tommyettinger.jdkgdxds" />
 
 	<inherits name="io.github.fourlastor.GdxGame" />
 	<inherits name="io.github.fourlastor.LdtkLoader" />
 	<inherits name="io.github.fourlastor.Harlequin" />
+	<inherits name="io.github.fourlastor.HarlequinAshley" />
 	<inherits name="io.github.fourlastor.JsonParser" />
 	<inherits name="io.github.fourlastor.AutoPool" />
 	<entry-point class="io.github.fourlastor.game.client.HtmlLauncher" />

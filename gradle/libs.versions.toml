@@ -15,8 +15,11 @@ jsinterop="2.0.0"
 shadow = "7.1.2"
 spotless = "6.10.0"
 perceptual = "1.0.0"
-regexodus = "0.1.13"
-textratypist = "0.7.2"
+tommyettinger-funderby = "0.1.1"
+tommyettinger-digital = "0.4.5"
+tommyettinger-jdkgdxds = "1.4.5"
+tommyettinger-regexodus = "0.1.15"
+tommyettinger-textratypist = "0.10.0"
 [libraries]
 ashley = { module = "com.badlogicgames.ashley:ashley", version.ref = "ashley" }
 dagger-core = { module = "com.google.dagger:dagger", version.ref = "dagger"}
@@ -39,8 +42,11 @@ harlequin-core = { module = "io.github.fourlastor.gdx:harlequin", version.ref = 
 harlequin-ashley = { module = "io.github.fourlastor.gdx:harlequin-ashley", version.ref = "harlequin" }
 jsinterop = { module = "com.google.jsinterop:jsinterop-annotations", version.ref = "jsinterop" }
 perceptual = { module = "io.github.fourlastor.gdx:perceptual", version.ref = "perceptual" }
-regexodus = { module = "com.github.tommyettinger:regexodus", version.ref = "regexodus" }
-textratypist = { module = "com.github.tommyettinger:textratypist", version.ref = "textratypist" }
+tommyettinger-funderby = { module = "com.github.tommyettinger:funderby", version.ref = "tommyettinger-funderby"}
+tommyettinger-digital = { module = "com.github.tommyettinger:digital", version.ref = "tommyettinger-digital"}
+tommyettinger-jdkgdxds = { module = "com.github.tommyettinger:jdkgdxds", version.ref = "tommyettinger-jdkgdxds"}
+tommyettinger-regexodus = { module = "com.github.tommyettinger:regexodus", version.ref = "tommyettinger-regexodus" }
+tommyettinger-textratypist = { module = "com.github.tommyettinger:textratypist", version.ref = "tommyettinger-textratypist" }
 [plugins]
 gretty = { id = "org.gretty", version.ref = "gretty" }
 gwt = { id = "org.docstr.gwt", version.ref = "gwt-plugin" }
