@@ -1,7 +1,7 @@
 [versions]
 ashley = "1.7.4"
 controllers = "2.2.1"
-dagger = "2.47"
+dagger = "2.49"
 download-plugin = "5.3.0"
 javax = "1"
 gdx = "1.12.0"
