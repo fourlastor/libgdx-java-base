@@ -1,10 +1,6 @@
 import org.akhikhl.gretty.AppBeforeIntegrationTestTask
 import org.docstr.gradle.plugins.gwt.GwtSuperDev
 
-@Suppress(
-    // known false positive: https://youtrack.jetbrains.com/issue/KTIJ-19369
-    "DSL_SCOPE_VIOLATION"
-)
 plugins {
     java
     war
@@ -116,20 +112,22 @@ dependencies {
     implementation(libs.java.inject)
     implementation(libs.gdx.backend.gwt)
     sources(libs.gdx.backend.gwt)
+    sources(libs.jsinterop)
     sources(libs.gdx.core)
     sources(libs.gdx.ai)
     sources(libs.gdx.box2d.core)
-    implementation(libs.gdx.box2d.gwt)
     sources(libs.gdx.box2d.gwt)
     sources(libs.gdx.controllers.core)
-    implementation(libs.gdx.controllers.gwt)
     sources(libs.gdx.controllers.gwt)
     sources(libs.ashley)
-    sources(libs.textratypist)
-    sources(libs.regexodus)
     sources(libs.harlequin.core)
     sources(libs.harlequin.ashley)
     sources(libs.perceptual)
+    sources(libs.tommyettinger.funderby)
+    sources(libs.tommyettinger.digital)
+    sources(libs.tommyettinger.jdkgdxds)
+    sources(libs.tommyettinger.regexodus)
+    sources(libs.tommyettinger.textratypist)
 }
 
 fun DependencyHandlerScope.sources(

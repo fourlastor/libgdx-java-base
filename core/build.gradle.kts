@@ -1,9 +1,5 @@
 import com.badlogic.gdx.tools.texturepacker.TexturePacker
 
-@Suppress(
-    // known false positive: https://youtrack.jetbrains.com/issue/KTIJ-19369
-    "DSL_SCOPE_VIOLATION"
-)
 plugins {
     `java-library`
     idea
@@ -46,9 +42,13 @@ val packTextures = tasks.register("packTextures") {
     }
 }
 
-tasks.compileJava.configure {
-    dependsOn(packTextures)
-    options.encoding = "UTF-8"
+tasks {
+    processResources {
+        dependsOn(packTextures)
+    }
+    compileJava {
+        options.encoding = "UTF-8"
+    }
 }
 
 dependencies {
@@ -62,7 +62,8 @@ dependencies {
     implementation(libs.gdx.box2d.core)
     implementation(libs.gdx.controllers.core)
     implementation(libs.ashley)
-    implementation(libs.textratypist)
+    implementation(libs.tommyettinger.textratypist)
+    implementation(libs.tommyettinger.jdkgdxds)
     implementation(libs.dagger.core)
     api(libs.dagger.gwt)
     annotationProcessor(libs.dagger.compiler)

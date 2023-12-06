@@ -1,6 +1,5 @@
 package io.github.fourlastor.game.level.di;
 
-import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.ai.msg.MessageDispatcher;
 import com.badlogic.gdx.graphics.Camera;
@@ -19,7 +18,6 @@ import io.github.fourlastor.game.level.physics.PhysicsSystem;
 import io.github.fourlastor.game.level.system.ActorFollowBodySystem;
 import io.github.fourlastor.game.level.system.CameraMovementSystem;
 import io.github.fourlastor.game.level.system.ClearScreenSystem;
-import io.github.fourlastor.harlequin.component.ActorComponent;
 import io.github.fourlastor.harlequin.system.StageSystem;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -51,9 +49,8 @@ public class LevelModule {
     }
 
     @Provides
-    public StageSystem stageSystem(
-            Stage stage, @Layers Class<? extends Enum<?>> layers, ComponentMapper<ActorComponent> actors) {
-        return new StageSystem(stage, layers, actors);
+    public StageSystem stageSystem(Stage stage, @Layers Class<? extends Enum<?>> layers) {
+        return new StageSystem(stage, layers);
     }
 
     @Provides
