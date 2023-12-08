@@ -60,13 +60,13 @@ tasks.create("superDev", GwtSuperDev::class.java) {
     }
 }
 
-val distDir = "$buildDir/dist"
+val distDir = layout.buildDirectory.dir("dist")
 
 tasks.create("dist") {
     dependsOn(tasks.clean, tasks.compileGwt)
     doLast {
         copy {
-            from("$buildDir/gwt/out") {
+            from(layout.buildDirectory.dir("gwt/out")) {
                 exclude("**/*.symbolMap") // Not used by a dist, and these can be large.
             }
             into(distDir)
