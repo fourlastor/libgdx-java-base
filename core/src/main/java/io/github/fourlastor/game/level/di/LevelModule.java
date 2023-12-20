@@ -3,6 +3,9 @@ package io.github.fourlastor.game.level.di;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.ai.msg.MessageDispatcher;
 import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.CpuSpriteBatch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -61,14 +64,20 @@ public class LevelModule {
 
     @Provides
     @ScreenScoped
-    public Viewport viewport() {
-        return new FitViewport(9f, 16f);
+    public CpuSpriteBatch batch() {
+        return new CpuSpriteBatch();
     }
 
     @Provides
     @ScreenScoped
-    public Stage stage(Viewport viewport) {
-        return new Stage(viewport);
+    public Viewport viewport() {
+        return new FitViewport(160f, 9f);
+    }
+
+    @Provides
+    @ScreenScoped
+    public Stage stage(Viewport viewport, SpriteBatch batch) {
+        return new Stage(viewport, batch);
     }
 
     @Provides
