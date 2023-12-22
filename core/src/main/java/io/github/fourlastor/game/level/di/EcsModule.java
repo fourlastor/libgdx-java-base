@@ -4,42 +4,35 @@ import com.badlogic.ashley.core.ComponentMapper;
 import dagger.Module;
 import dagger.Provides;
 import io.github.fourlastor.game.di.ScreenScoped;
-import io.github.fourlastor.game.level.component.AnimatedImageComponent;
-import io.github.fourlastor.game.level.component.BodyBuilderComponent;
-import io.github.fourlastor.game.level.component.BodyComponent;
-import io.github.fourlastor.game.level.component.PlayerComponent;
-import io.github.fourlastor.harlequin.component.ActorComponent;
+import io.github.fourlastor.game.level.component.ControlsComponent;
+import io.github.fourlastor.game.level.component.HierarchyComponent;
+import io.github.fourlastor.game.level.component.TextureComponent;
+import io.github.fourlastor.game.level.component.TransformComponent;
 
 @Module
 public class EcsModule {
 
     @Provides
     @ScreenScoped
-    public ComponentMapper<AnimatedImageComponent> animatedImageComponent() {
-        return ComponentMapper.getFor(AnimatedImageComponent.class);
+    public ComponentMapper<ControlsComponent> controls() {
+        return ComponentMapper.getFor(ControlsComponent.class);
     }
 
     @Provides
     @ScreenScoped
-    public ComponentMapper<ActorComponent> imageComponent() {
-        return ComponentMapper.getFor(ActorComponent.class);
+    public ComponentMapper<TextureComponent> textures() {
+        return ComponentMapper.getFor(TextureComponent.class);
     }
 
     @Provides
     @ScreenScoped
-    public ComponentMapper<BodyComponent> bodyComponent() {
-        return ComponentMapper.getFor(BodyComponent.class);
+    public ComponentMapper<TransformComponent> transforms() {
+        return ComponentMapper.getFor(TransformComponent.class);
     }
 
     @Provides
     @ScreenScoped
-    public ComponentMapper<BodyBuilderComponent> bodyBuilderComponent() {
-        return ComponentMapper.getFor(BodyBuilderComponent.class);
-    }
-
-    @Provides
-    @ScreenScoped
-    public ComponentMapper<PlayerComponent> playerComponent() {
-        return ComponentMapper.getFor(PlayerComponent.class);
+    public ComponentMapper<HierarchyComponent> hierarchies() {
+        return ComponentMapper.getFor(HierarchyComponent.class);
     }
 }
