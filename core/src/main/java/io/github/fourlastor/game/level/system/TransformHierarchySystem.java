@@ -1,5 +1,6 @@
 package io.github.fourlastor.game.level.system;
 
+import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
@@ -12,14 +13,32 @@ import com.github.tommyettinger.ds.ObjectList;
 import io.github.fourlastor.game.level.component.HierarchyComponent;
 import io.github.fourlastor.game.level.component.TransformComponent;
 import java.util.Comparator;
+import java.util.List;
 import javax.inject.Inject;
 
 public class TransformHierarchySystem extends EntitySystem implements EntityListener {
 
     private static final Family FAMILY =
             Family.all(HierarchyComponent.class, TransformComponent.class).get();
+    private static final Family FAMILY_LINKED_ENTITIES =
+            Family.all(LinkedEntitiesComponent.class).get();
     private final ComponentMapper<HierarchyComponent> hierarchies = ComponentMapper.getFor(HierarchyComponent.class);
     private final ComponentMapper<TransformComponent> transforms = ComponentMapper.getFor(TransformComponent.class);
+    private final ComponentMapper<LinkedEntitiesComponent> linkedEntities =
+            ComponentMapper.getFor(LinkedEntitiesComponent.class);
+
+    private final EntityListener linkedEntitiesRemoval = new EntityListener() {
+        @Override
+        public void entityAdded(Entity entity) {}
+
+        @Override
+        public void entityRemoved(Entity entity) {
+            Engine engine = getEngine();
+            for (Entity linkedEntity : linkedEntities.get(entity).linkedEntities) {
+                engine.removeEntity(linkedEntity);
+            }
+        }
+    };
 
     private ObjectList<Entity> sortedEntities;
 
@@ -40,6 +59,7 @@ public class TransformHierarchySystem extends EntitySystem implements EntityList
 
         sortedEntities.sort(Comparator.comparingInt(e -> depthMap.get(e, 0)));
         engine.addEntityListener(FAMILY, this);
+        engine.addEntityListener(FAMILY_LINKED_ENTITIES, linkedEntitiesRemoval);
     }
 
     @Override
@@ -64,6 +84,10 @@ public class TransformHierarchySystem extends EntitySystem implements EntityList
         if (parent != null) {
             int parentIndex = sortedEntities.indexOf(parent);
             index = parentIndex + 1;
+            if (!linkedEntities.has(parent)) {
+                parent.add(new LinkedEntitiesComponent());
+            }
+            linkedEntities.get(parent).linkedEntities.add(entity);
         }
         sortedEntities.add(index, entity);
     }
@@ -71,6 +95,10 @@ public class TransformHierarchySystem extends EntitySystem implements EntityList
     @Override
     public void entityRemoved(Entity entity) {
         sortedEntities.remove(entity);
+        Entity parent = parentOf(entity);
+        if (parent != null) {
+            linkedEntities.get(parent).linkedEntities.remove(entity);
+        }
     }
 
     @Override
@@ -91,5 +119,9 @@ public class TransformHierarchySystem extends EntitySystem implements EntityList
             parent = parentOf(entity);
         }
         return depth;
+    }
+
+    private static class LinkedEntitiesComponent implements Component {
+        public final List<Entity> linkedEntities = new ObjectList<>();
     }
 }
