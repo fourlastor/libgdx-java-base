@@ -34,6 +34,9 @@ public class TransformHierarchySystem extends EntitySystem implements EntityList
         @Override
         public void entityRemoved(Entity entity) {
             Engine engine = getEngine();
+            if (!linkedEntities.has(entity)) {
+                return;
+            }
             for (Entity linkedEntity : linkedEntities.get(entity).linkedEntities) {
                 engine.removeEntity(linkedEntity);
             }
@@ -97,7 +100,11 @@ public class TransformHierarchySystem extends EntitySystem implements EntityList
         sortedEntities.remove(entity);
         Entity parent = parentOf(entity);
         if (parent != null) {
-            linkedEntities.get(parent).linkedEntities.remove(entity);
+            LinkedEntitiesComponent linkedEntitiesComponent = linkedEntities.get(parent);
+            linkedEntitiesComponent.linkedEntities.remove(entity);
+            if (linkedEntitiesComponent.linkedEntities.isEmpty()) {
+                parent.remove(LinkedEntitiesComponent.class);
+            }
         }
     }
 
