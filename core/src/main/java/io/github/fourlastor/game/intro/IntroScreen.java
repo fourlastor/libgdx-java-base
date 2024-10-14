@@ -7,7 +7,12 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -22,7 +27,6 @@ public class IntroScreen extends ScreenAdapter {
     private final InputMultiplexer inputMultiplexer;
     private final Stage stage;
     private final Viewport viewport;
-    private final AnimationStateMachine animationGroup;
 
     @Inject
     public IntroScreen(InputMultiplexer inputMultiplexer, AssetManager assetManager) {
@@ -31,15 +35,26 @@ public class IntroScreen extends ScreenAdapter {
         viewport = new FitViewport(256, 144);
         stage = new Stage(viewport);
 
-        AnimationNode.Group node =
-                assetManager.get("images/included/animations/dancer/dancer.json", AnimationNode.Group.class);
-        animationGroup = new AnimationStateMachine(node);
-        stage.addActor(animationGroup);
+        Group group = new Group();
+        TextButton.TextButtonStyle style = new TextButton.TextButtonStyle();
+        style.font = assetManager.get("fonts/quan-pixel-32.fnt");
+        TextButton actor = new TextButton("click me", style);
+        actor.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                System.out.println("clicked");
+            }
+        });
+        group.addActor(actor);
+        stage.addActor(group);
+//        AnimationNode.Group node =
+//                assetManager.get("images/included/animations/dancer/dancer.json", AnimationNode.Group.class);
+//        animationGroup = new AnimationStateMachine(node);
     }
 
     @Override
     public void show() {
-        inputMultiplexer.addProcessor(processor);
+        inputMultiplexer.addProcessor(stage);
     }
 
     @Override
@@ -49,38 +64,9 @@ public class IntroScreen extends ScreenAdapter {
 
     @Override
     public void hide() {
-        inputMultiplexer.removeProcessor(processor);
+        inputMultiplexer.removeProcessor(stage);
     }
 
-    private final InputProcessor processor = new InputAdapter() {
-        @Override
-        public boolean keyUp(int keycode) {
-            switch (keycode) {
-                case Input.Keys.A:
-                    animationGroup.enter("balancing");
-                    return true;
-                case Input.Keys.S:
-                    animationGroup.enter("hips");
-                    return true;
-                case Input.Keys.D:
-                    animationGroup.enter("skip");
-                    return true;
-                case Input.Keys.F:
-                    animationGroup.enter("slide");
-                    return true;
-                case Input.Keys.G:
-                    animationGroup.enter("snap");
-                    return true;
-            }
-            return false;
-        }
-
-        @Override
-        public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-            System.out.println("Go to level");
-            return true;
-        }
-    };
 
     @Override
     public void render(float delta) {

@@ -1,9 +1,12 @@
 package io.github.fourlastor.game;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Cursor;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.github.tommyettinger.ds.ObjectList;
 import io.github.fourlastor.game.di.GameComponent;
 import io.github.fourlastor.game.intro.IntroComponent;
@@ -21,16 +24,19 @@ public class GdxGame extends Game implements Router {
 
     private final LevelComponent.Builder levelScreenFactory;
     private final IntroComponent.Builder introScreenFactory;
+    private final Runnable theRun;
     private Screen pendingScreen = null;
 
     @Inject
     public GdxGame(
             InputMultiplexer multiplexer,
             LevelComponent.Builder levelScreenFactory,
-            IntroComponent.Builder introScreenFactory) {
+            IntroComponent.Builder introScreenFactory,
+            Runnable theRun) {
         this.multiplexer = multiplexer;
         this.levelScreenFactory = levelScreenFactory;
         this.introScreenFactory = introScreenFactory;
+        this.theRun = theRun;
         Harlequin.LIST_CREATOR = new Harlequin.ListCreator() {
             @Override
             public <T> List<T> newList() {
@@ -46,13 +52,14 @@ public class GdxGame extends Game implements Router {
 
     @Override
     public void create() {
-        //        if (Gdx.app.getType() != Application.ApplicationType.Android) {
-        //
-        //            Cursor customCursor =
-        //                    Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("images/included/whitePixel.png")),
-        // 0, 0);
-        //            Gdx.graphics.setCursor(customCursor);
-        //        }
+        if (Gdx.app.getType() != Application.ApplicationType.Android) {
+
+            Cursor customCursor =
+                    Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("images/included/cursor.png")),
+ 0, 0);
+            Gdx.graphics.setCursor(customCursor);
+        }
+        theRun.run();
         Gdx.input.setInputProcessor(multiplexer);
         goToIntro();
     }
@@ -66,8 +73,8 @@ public class GdxGame extends Game implements Router {
         super.render();
     }
 
-    public static GdxGame createGame() {
-        return GameComponent.component().game();
+    public static GdxGame createGame(Runnable theRun) {
+        return GameComponent.component(theRun).game();
     }
 
     @Override

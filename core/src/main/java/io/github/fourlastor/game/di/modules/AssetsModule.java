@@ -1,6 +1,7 @@
 package io.github.fourlastor.game.di.modules;
 
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
@@ -52,6 +53,7 @@ public class AssetsModule {
                 AnimationNode.Group.class,
                 new DragonBonesLoader.Parameters(PATH_TEXTURE_ATLAS, "animations/dancer/texture"));
         assetManager.load(PATH_WAVE_SHADER, ShaderProgram.class);
+        assetManager.load("fonts/quan-pixel-32.fnt", BitmapFont.class);
         assetManager.finishLoading();
         return assetManager;
     }

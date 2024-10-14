@@ -1,7 +1,10 @@
 package io.github.fourlastor.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Graphics;
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Window;
 import com.badlogic.gdx.graphics.glutils.HdpiMode;
 import org.lwjgl.glfw.GLFW;
 
@@ -19,7 +22,10 @@ public class DesktopLauncher {
         config.setTitle("Game");
         config.setHdpiMode(HdpiMode.Pixels);
         setWindowedMode(config, scaleX[0], scaleY[0]);
-        new Lwjgl3Application(GdxGame.createGame(), config);
+        new Lwjgl3Application(GdxGame.createGame(() -> {
+            Lwjgl3Window window = ((Lwjgl3Graphics) Gdx.graphics).getWindow();
+            GLFW.glfwSetInputMode(window.getWindowHandle(), GLFW.GLFW_CURSOR, GLFW.GLFW_CURSOR_CAPTURED);
+        }), config);
     }
 
     private static void setWindowedMode(Lwjgl3ApplicationConfiguration config, float scaleX, float scaleY) {
